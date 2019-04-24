@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html style="margin: 0px;height: 100%;width: 100%;">
-<head>  <meta charset="UTF-8">
+<head>  <meta charset="UTF-8"> <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
 <body bgcolor="#5A8FD5"  style="width:800px; height:100px;">
 	<img src="./Images/UI/exitbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="goback()">
-<div id="modal" class="modal">	<div style="max-width: 800px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class" class="animate-zoom">	<div style="max-width: 800px; overflow:scroll;" id="bg" class="modal-content">	
+<div id="modal" class="modal">	<div style="max-width: 800px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class" class="animate-zoom">	<div style="max-width: 800px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content">	
 	<span class="close" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
     <div class="maps">
 <img id ="map" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(0)"></img>
@@ -82,7 +82,34 @@
     	</div>
 </div></div></div>
 </div></div>
-	<img src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;" onclick="selectmap()">
+<div>
+<p> Challenge Name:
+    <input type="text" id="header" style="background-color: #436FA8;width: 300px;" value="Name">
+    </p>
+<div style="display: inline-block">
+	<img id="changemapgear" src="./Images/Tracks/track_gear.png" style="position: absolute;width: 270px; height: 200px;" onclick="selectmap()"> <!-- onclick="selectmap() -->
+	<img id="changemapbtn" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;" onclick="selectmap()">
+</div>
+<div style="display: inline-block">
+<p> Game Mode:
+    <select id="gamemode" name="type" onchange="changegamemode(value)">
+    <option value="easy">Easy</option>
+    <option value="medium">Medium</option>
+    <option value="hard">Hard</option>
+    <option value="hard">Not Impoppable?</option>
+    <option value="hard">Deflation</option>
+    <option value="hard">Apocalypse</option>
+  </select>
+    </p>
+    <p> Starting Cash:
+    <input type="text" id="startcash" style="width: 75px" value="DEFAULT">
+    </p>
+    <p> Starting Lives:
+    <input type="text" id="startlives" style="width: 75px" value="DEFAULT">
+    </p>
+</div>
+
+</div>
 	<script>
 	//Defaut Declarations
 		var nk_title = "";
@@ -172,6 +199,7 @@ span.onclick = function() {
 
 function changemap(newmap){
 map = newmap;
+document.getElementById("changemapbtn").src = "\.\/Images\/Tracks\/" + mapnames[map] + "_thumb.jpg";
 console.log("New Map = " + mapnames[map]);
 }
 /*for(var i=0; i<mapnames.length;i++){
@@ -179,6 +207,7 @@ console.log("New Map = " + mapnames[map]);
 };*/
 	</script>
 	<style>
+	@font-face { font-family: btd5; src: url('./Font/oetztype.ttf'); } 
 	.modal {
     display: none;
     z-index: 1;
@@ -206,8 +235,8 @@ console.log("New Map = " + mapnames[map]);
 
 }
 .close {
-	position:fixed;
-	right: 10px;
+	position:absolute;
+	right: 14px;
 	padding: 0px;
     color: #aaaaaa;
     float: right;
@@ -220,6 +249,40 @@ console.log("New Map = " + mapnames[map]);
     color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+p {
+	font-family: btd5;
+	color: white;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+input {
+	text-align-last:center;
+	background-color: #436FA8;
+	font-family: btd5;
+	color: white;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+select {
+	text-align-last:center;
+	background-color: #436FA8;
+	font-family: btd5;
+	color: white;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+}
+option {
+
 }
 </style>
 </body>
