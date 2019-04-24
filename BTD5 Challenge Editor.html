@@ -1,17 +1,108 @@
 <!DOCTYPE html>
 <html style="margin: 0px;height: 100%;width: 100%;">
-<head>
-<body bgcolor="#5A8FD5">
+<head>  <meta charset="UTF-8">
+<body bgcolor="#5A8FD5"  style="width:800px; height:100px;">
+	<img src="./Images/UI/exitbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="goback()">
+<div id="modal" class="modal">	<div style="max-width: 800px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class" class="animate-zoom">	<div style="max-width: 800px; overflow:scroll;" id="bg" class="modal-content">	
+	<span class="close" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
+    <div class="maps">
+<img id ="map" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(0)"></img>
+<img id ="map" src="./Images/Tracks/bloom_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(1)"></img>
+<img id ="map" src="./Images/Tracks/present_delivery_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(2)"></img>
+<img id ="map" src="./Images/Tracks/rabbit_holes_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(3)"></img>
+<img id ="map" src="./Images/Tracks/snowy_backyard_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(4)"></img>
+<img id ="map" src="./Images/Tracks/sprint_track_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(5)"></img>
+<img id ="map" src="./Images/Tracks/express_shipping_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(6)"></img>
+<img id ="map" src="./Images/Tracks/checkers_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(7)"></img>
+<img id ="map" src="./Images/Tracks/skull_peak_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(8)"></img>
+<img id ="map" src="./Images/Tracks/lobby_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(9)"></img>
+<img id ="map" src="./Images/Tracks/3_times_around_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(10)"></img>
+<img id ="map" src="./Images/Tracks/grotto_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(11)"></img>
+<img id ="map" src="./Images/Tracks/patch_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(12)"></img>
+<img id ="map" src="./Images/Tracks/hedge_maze_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(13)"></img>
+<img id ="map" src="./Images/Tracks/fireworks_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(14)"></img>
+<img id ="map" src="./Images/Tracks/brick_wall_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(15)"></img>
+<img id ="map" src="./Images/Tracks/z_factor_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(16)"></img>
+<img id ="map" src="./Images/Tracks/maze_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(17)"></img>
+<img id ="map" src="./Images/Tracks/frozen_lake_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(18)"></img>
+<img id ="map" src="./Images/Tracks/roswell_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(19)"></img>
+<img id ="map" src="./Images/Tracks/space_truckin_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(20)"></img>
+<img id ="map" src="./Images/Tracks/walk_in_the_park_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(21)"></img>
+<img id ="map" src="./Images/Tracks/ancient_tomb_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(22)"></img>
+<img id ="map" src="./Images/Tracks/hearthside_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(23)"></img>
+<img id ="map" src="./Images/Tracks/six_feet_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(24)"></img>
+<img id ="map" src="./Images/Tracks/river_rapids_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(25)"></img>
+<img id ="map" src="./Images/Tracks/wattle_trees_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(26)"></img>
+<img id ="map" src="./Images/Tracks/pyramids_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(27)"></img>
+<img id ="map" src="./Images/Tracks/dune_sea_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(28)"></img>
+<img id ="map" src="./Images/Tracks/lava_fields_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(29)"></img>
+<img id ="map" src="./Images/Tracks/ice_flow_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(30)"></img>
+<img id ="map" src="./Images/Tracks/country_road_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(31)"></img>
+<img id ="map" src="./Images/Tracks/jungle_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(32)"></img>
+<img id ="map" src="./Images/Tracks/workshop_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(33)"></img>
+<img id ="map" src="./Images/Tracks/bloon_of_clubs_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(34)"></img>
+<img id ="map" src="./Images/Tracks/archipelago_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(35)"></img>
+<img id ="map" src="./Images/Tracks/crop_circles_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(36)"></img>
+<img id ="map" src="./Images/Tracks/slalom_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(37)"></img>
+<img id ="map" src="./Images/Tracks/stream_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(38)"></img>
+<img id ="map" src="./Images/Tracks/dock_side_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(39)"></img>
+<img id ="map" src="./Images/Tracks/villageshore_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(40)"></img>
+<img id ="map" src="./Images/Tracks/trick_or_treat_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(41)"></img>
+<img id ="map" src="./Images/Tracks/battle_knot_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(42)"></img>
+<img id ="map" src="./Images/Tracks/candyland_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(43)"></img>
+<img id ="map" src="./Images/Tracks/crypt_keeper_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(44)"></img>
+<img id ="map" src="./Images/Tracks/long_range_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(45)"></img>
+<img id ="map" src="./Images/Tracks/water_hazard_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(46)"></img>
+<img id ="map" src="./Images/Tracks/rink_revenge_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(47)"></img>
+<img id ="map" src="./Images/Tracks/challenger_deep_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(48)"></img>
+<img id ="map" src="./Images/Tracks/scorched_earth_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(49)"></img>
+<img id ="map" src="./Images/Tracks/u_turn_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(50)"></img>
+<img id ="map" src="./Images/Tracks/the_great_divide_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(51)"></img>
+<img id ="map" src="./Images/Tracks/the_eye_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(52)"></img>
+<img id ="map" src="./Images/Tracks/one_direction_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(53)"></img>
+<img id ="map" src="./Images/Tracks/lightning_scar_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(54)"></img>
+<img id ="map" src="./Images/Tracks/go_with_the_flow_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(55)"></img>
+<img id ="map" src="./Images/Tracks/mount_magma_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(56)"></img>
+<img id ="map" src="./Images/Tracks/siege_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(57)"></img>
+<img id ="map" src="./Images/Tracks/double_double_crossover_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(58)"></img>
+<img id ="map" src="./Images/Tracks/tunnels_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(59)"></img>
+<img id ="map" src="./Images/Tracks/castle_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(60)"></img>
+<img id ="map" src="./Images/Tracks/against_the_clock_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(61)"></img>
+<img id ="map" src="./Images/Tracks/drag_strip_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(62)"></img>
+<img id ="map" src="./Images/Tracks/canyon_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(63)"></img>
+<img id ="map" src="./Images/Tracks/treetops_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(64)"></img>
+<img id ="map" src="./Images/Tracks/runway_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(65)"></img>
+<img id ="map" src="./Images/Tracks/down_the_drain_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(66)"></img>
+<img id ="map" src="./Images/Tracks/benguela_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(67)"></img>
+<img id ="map" src="./Images/Tracks/web_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(68)"></img>
+<img id ="map" src="./Images/Tracks/forestpath_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(69)"></img>
+<img id ="map" src="./Images/Tracks/tar_pit_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(70)"></img>
+<img id ="map" src="./Images/Tracks/main_street_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(71)"></img>
+<img id ="map" src="./Images/Tracks/radioactive_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(72)"></img>
+    	</div>
+</div></div></div>
+</div></div>
+	<img src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;" onclick="selectmap()">
 	<script>
 	//Defaut Declarations
-		var map = 0;
+		var nk_title = "";
+		var nk_track = "";
+		var nk_rank_required = 30;
+		var nk_is_new = false;
+		var nk_id = 2019;
+		var nk_mode = 1;
+		var nk_description = "";
 		var LockedTowers = [];
 		var LockedUpgrades = [];
-
 	//Game Properties
+		var CanSave = false;
+		var CanEarnMoney = true;
 		var MoneyPerRound = 100;
 		var CashPerPopModifier = 1.0;
-		
+		var MaxNumberOfEachTower = -1;
+		var MaxNumberOfTotalTowers = -1;
+		var BlockedLabUpgrades = [];
+		var BloonLevelOffsets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 		//Setup
 		var Setup = [];
@@ -21,8 +112,21 @@
 		var StartRound = 1;
 		var Inventory = [];
 		
+		//Reward
+		var Tokens = 0;
+		var XPMultiplier = 1.0;
+		var MonkeyMoney = 500;
+		var XP = 0;
+		var MonkeyMoneyMultiplier = 1;
 
 	//Special Coniditions
+		//Unknown
+		var RoundStep = 1.0;
+		var PauseBetweenRounds = true;
+		var SpeedModifier = 1.0;
+		var PriceModifier = 1.0;
+		var SellPriceModifier = 0.8;
+
 		//The Crucible
 		var WaterToCrucible = false;
 
@@ -37,18 +141,87 @@
 		//Wizard Lord
 		var ConsumeMostExpensiveTowerRounds = 2;
 
+		//FastUpgrades
+		var TowersAutoUpgrade = false;
+
+		//Short Lived
+		var TowerLifespan = -1;
+
+		//Covert Pops
+		var BloonsForcedCamo = [];
+
+
+		//EXTRA FOR CODE
+		var mapnames = ["monkey_lane", "bloom", "present_delivery", "rabbit_holes", "snowy_backyard", "sprint_track", "express_shipping", "checkers", "skull_peak", "lobby", "3_times_around", "grotto", "patch", "hedge_maze", "fireworks", "brick_wall", "z_factor", "maze", "frozen_lake", "roswell", "space_truckin", "walk_in_the_park", "ancient_tomb", "hearthside", "six_feet", "river_rapids", "wattle_trees", "pyramids", "dune_sea", "lava_fields", "ice_flow", "country_road", "jungle", "workshop", "bloon_of_clubs", "archipelago", "crop_circles", "slalom", "stream", "dock_side", "villageshore", "trick_or_treat", "battle_knot","candyland","crypt_keeper", "long_range", "water_hazard", "rink_revenge", "challenger_deep", "scorched_earth", "u_turn","the_great_divide","the_eye","one_direction", "lightning_scar","go_with_the_flow","mount_magma","siege","double_double_crossover","tunnels","castle","against_the_clock","drag_strip","canyon","treetops","runway","down_the_drain","benguela","web","forestpath","tar_pit","main_street","radioactive"];
+
 
 		//Towers is going to be a click to deactivate kind of deal
 
 		//Maps will be a switch case specifying which
 
 		//Checkboxes for specailities
+		//UI
+var modal = document.getElementById('modal');
+var span = document.getElementsByClassName("close")[0];
+function selectmap() {
+modal.style.display = "block";
+}
+span.onclick = function() {
+	modal.style.display = "none";
+}
 
-		//Show Extra Options Space
-		//WizardLord consume, 
-
-		//Reward Space
+function changemap(newmap){
+map = newmap;
+console.log("New Map = " + mapnames[map]);
+}
+/*for(var i=0; i<mapnames.length;i++){
+	console.log("\<img id \=\"map\" src=\"\.\/Images\/Tracks\/" + mapnames[i] + "_thumb.jpg\" style\=\"width\:250px\;height\:180px;\" onclick\=\"changemap\(" + i + "\)\"\>\<\/img\>");
+};*/
 	</script>
+	<style>
+	.modal {
+    display: none;
+    z-index: 1;
+    padding-top: 100px;
+    padding: 0;
+
+	position: absolute;
+    top: 50%;
+    left:50%;
+    margin-left: -400px;
+    margin-top: -200px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0);
+}
+.modal-content {
+	background-image: url("");
+    background-color: #fefefe;
+    margin: auto;
+    z-index: 1;
+    padding-top: 0px;
+    padding: 1px;
+    border: 1px solid #888;
+    width: 800px;
+    height: 450px;
+
+}
+.close {
+	position:fixed;
+	right: 10px;
+	padding: 0px;
+    color: #aaaaaa;
+    float: right;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
 </body>
 </head>
 </html>
