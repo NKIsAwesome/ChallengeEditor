@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html style="margin: 0px;height: 100%;width: 100%;">
 <head>  <meta charset="UTF-8"> <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
-<body bgcolor="#5A8FD5"  style="width:800px; height:100px;">
-	<img src="./Images/UI/exitbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="goback()">
-<div id="modal" class="modal">	<div style="max-width: 800px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class" class="animate-zoom">	<div style="max-width: 800px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content">	
+<body bgcolor="#5A8FD5"  style="width:700px; height:100px;">
+	<img src="./Images/UI/benbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="advancedmode()">
+<div id="modal" class="modal">	<div style="max-width: 800px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class">	<div style="max-width: 800px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content">	
 	<span class="close" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
     <div class="maps">
 <img id ="map" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width:250px;height:180px;" onclick="changemap(0)"></img>
@@ -82,10 +82,35 @@
     	</div>
 </div></div></div>
 </div></div>
+<div id="modal2" class="modal2">	<div style="max-width: 500px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class">	<div style="max-width: 500px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content2">  
+	<span class="close2" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
+<div><img id ="red" src="./Images/Bloon/Red.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="0" class="slider" id="RedSlider" oninput="changebloon(this.value,0)"><img id ="Red2" src="./Images/Bloon/Red.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="blue" src="./Images/Bloon/Blue.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="1" class="slider" id="BlueSlider" oninput="changebloon(this.value,1)"><img id ="Blue2" src="./Images/Bloon/Blue.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="green" src="./Images/Bloon/Green.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="2" class="slider" id="GreenSlider" oninput="changebloon(this.value,2)"><img id ="Green2" src="./Images/Bloon/Green.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="yellow" src="./Images/Bloon/Yellow.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="3" class="slider" id="YellowSlider" oninput="changebloon(this.value,3)"><img id ="Yellow2" src="./Images/Bloon/Yellow.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="pink" src="./Images/Bloon/Pink.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="4" class="slider" id="PinkSlider" oninput="changebloon(this.value,4)"><img id ="Pink2" src="./Images/Bloon/Pink.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="black" src="./Images/Bloon/Black.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="5" class="slider" id="BlackSlider" oninput="changebloon(this.value,5)"><img id ="Black2" src="./Images/Bloon/Black.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="white" src="./Images/Bloon/White.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="6" class="slider" id="WhiteSlider" oninput="changebloon(this.value,6)"><img id ="White2" src="./Images/Bloon/White.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="lead" src="./Images/Bloon/Lead.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="7" class="slider" id="LeadSlider" oninput="changebloon(this.value,7)"><img id ="Lead2" src="./Images/Bloon/Lead.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="zebra" src="./Images/Bloon/Zebra.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="8" class="slider" id="ZebraSlider" oninput="changebloon(this.value,8)"><img id ="Zebra2" src="./Images/Bloon/Zebra.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="rainbow" src="./Images/Bloon/Rainbow.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="9" class="slider" id="RainbowSlider" oninput="changebloon(this.value,9)"><img id ="Rainbow2" src="./Images/Bloon/Rainbow.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="ceramic" src="./Images/Bloon/Ceramic.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="10" class="slider" id="CeramicSlider" oninput="changebloon(this.value,10)"><img id ="Ceramic2" src="./Images/Bloon/Ceramic.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="moab" src="./Images/Bloon/MOAB.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="12" class="slider" id="MOABSlider" oninput="changebloon(this.value,12)"><img id ="MOAB2" src="./Images/Bloon/MOAB.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="bfb" src="./Images/Bloon/BFB.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="13" class="slider" id="BFBSlider" oninput="changebloon(this.value,13)"><img id ="BFB2" src="./Images/Bloon/BFB.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="zomg" src="./Images/Bloon/ZOMG.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="14" class="slider" id="ZOMGSlider" oninput="changebloon(this.value,14)"><img id ="ZOMG2" src="./Images/Bloon/ZOMG.png" style="width: 47px; height: 63px;"></div>
+
+ </div> </div> </div>
 <div>
 <p>&nbsp;Challenge Name:
-    <input type="text" id="header" style="background-color: #436FA8;width: 300px;" value="Name">
+    <input type="text" id="name" style="background-color: #436FA8;width: 300px;" value="Name">
     </p>
+<p>&nbsp;Challenge Description:
+    <input type="text" id="description" style="background-color: #436FA8;width: 300px;" value="Description">
+    </p>
+<p>&nbsp;Rank Required:
+    <input type="text" id="rank" style="background-color: #436FA8;width: 30px;" value="20">
+    </p>
+	<p>&nbsp;Can Save: <input type="checkbox" id="CanSave" onclick=""></p>
 <div style="display: inline-block">
 	<img id="changemapgear" src="./Images/Tracks/track_gear.png" style="position: absolute;width: 270px; height: 200px;" onclick="selectmap()"> <!-- onclick="selectmap() -->
 	<img id="changemapbtn" src="./Images/Tracks/monkey_lane_thumb.jpg" style="width: 250px; height: 180px;" onclick="selectmap()">
@@ -93,12 +118,12 @@
 <div style="display: inline-block">
 <p>&nbsp;Game Mode:
     <select id="gamemode" name="type" onchange="changegamemode(value)">
-    <option value="easy">Easy</option>
-    <option value="medium">Medium</option>
-    <option value="hard">Hard</option>
-    <option value="hard">Not Impoppable?</option>
-    <option value="hard">Deflation</option>
-    <option value="hard">Apocalypse</option>
+    <option value="0">Easy</option>
+    <option value="1">Medium</option>
+    <option value="2">Hard</option>
+    <option value="3">Not Impoppable?</option>
+    <option value="4">Deflation</option>
+    <option value="5">Apocalypse</option>
   </select>
     </p>
     <p>&nbsp;Starting Cash:
@@ -114,12 +139,72 @@
     <input type="text" id="startround" style="width: 75px" value="DEFAULT">
     </p>
 </div>
-
 </div>
+<img id ="DartMonkey" src="./Images/Towers/DartMonkey.png" style="width:62px;height:71px;" onclick="locktower(0)"></img>
+ <img id ="TackTower" src="./Images/Towers/TackTower.png" style="width:62px;height:71px;" onclick="locktower(1)"></img>
+ <img id ="SniperMonkey" src="./Images/Towers/SniperMonkey.png" style="width:62px;height:71px;" onclick="locktower(2)"></img>
+ <img id ="BoomerangThrower" src="./Images/Towers/BoomerangThrower.png" style="width:62px;height:71px;" onclick="locktower(3)"></img>
+ <img id ="NinjaMonkey" src="./Images/Towers/NinjaMonkey.png" style="width:62px;height:71px;" onclick="locktower(4)"></img>
+ <img id ="BombTower" src="./Images/Towers/BombTower.png" style="width:62px;height:71px;" onclick="locktower(5)"></img>
+ <img id ="IceTower" src="./Images/Towers/IceTower.png" style="width:62px;height:71px;" onclick="locktower(6)"></img>
+ <img id ="GlueGunner" src="./Images/Towers/GlueGunner.png" style="width:62px;height:71px;" onclick="locktower(7)"></img>
+ <img id ="MonkeyBuccaneer" src="./Images/Towers/MonkeyBuccaneer.png" style="width:62px;height:71px;" onclick="locktower(8)"></img>
+ <img id ="MonkeyAce" src="./Images/Towers/MonkeyAce.png" style="width:62px;height:71px;" onclick="locktower(9)"></img>
+ <img id ="SuperMonkey" src="./Images/Towers/SuperMonkey.png" style="width:62px;height:71px;" onclick="locktower(10)"></img>
+ <img id ="MonkeyApprentice" src="./Images/Towers/MonkeyApprentice.png" style="width:62px;height:71px;" onclick="locktower(11)"></img>
+ <img id ="MonkeyVillage" src="./Images/Towers/MonkeyVillage.png" style="width:62px;height:71px;" onclick="locktower(12)"></img>
+ <img id ="BananaFarm" src="./Images/Towers/BananaFarm.png" style="width:62px;height:71px;" onclick="locktower(13)"></img>
+ <img id ="MortarTower" src="./Images/Towers/MortarTower.png" style="width:62px;height:71px;" onclick="locktower(14)"></img>
+ <img id ="DartlingGunner" src="./Images/Towers/DartlingGunner.png" style="width:62px;height:71px;" onclick="locktower(15)"></img>
+ <img id ="HeliPilot" src="./Images/Towers/HeliPilot.png" style="width:62px;height:71px;" onclick="locktower(16)"></img>
+ <img id ="MonkeyEngineer" src="./Images/Towers/MonkeyEngineer.png" style="width:62px;height:71px;" onclick="locktower(17)"></img>
+ <img id ="Bloonchipper" src="./Images/Towers/Bloonchipper.png" style="width:62px;height:71px;" onclick="locktower(18)"></img>
+ <img id ="MonkeySub" src="./Images/Towers/MonkeySub.png" style="width:62px;height:71px;" onclick="locktower(19)"></img>
+ <p>&nbsp;Max Monkeys:
+    <input type="text" id="maxmonkeys" style="width: 30px" value="-1">
+    </p>
+ <p>&nbsp;Max of Each Monkey:
+    <input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
+    </p>
+    <div>
+<div class="container"> <img id ="DartMonkey2" src="./Images/Towers/DartMonkey.png" style="width:62px;height:71px;" onclick="upgradelock(0)"></img><div class="centered" id="DartMonkey2text" onclick="upgradelock(0)">4/4</div> </div>
+<div class="container"> <img id ="TackTower2" src="./Images/Towers/TackTower.png" style="width:62px;height:71px;" onclick="upgradelock(1)"></img><div class="centered" id="TackTower2text" onclick="upgradelock(1)">4/4</div> </div>
+<div class="container"> <img id ="SniperMonkey2" src="./Images/Towers/SniperMonkey.png" style="width:62px;height:71px;" onclick="upgradelock(2)"></img><div class="centered" id="SniperMonkey2text" onclick="upgradelock(2)">4/4</div> </div>
+<div class="container"> <img id ="BoomerangThrower2" src="./Images/Towers/BoomerangThrower.png" style="width:62px;height:71px;" onclick="upgradelock(3)"></img><div class="centered" id="BoomerangThrower2text" onclick="upgradelock(3)">4/4</div> </div>
+<div class="container"> <img id ="NinjaMonkey2" src="./Images/Towers/NinjaMonkey.png" style="width:62px;height:71px;" onclick="upgradelock(4)"></img><div class="centered" id="NinjaMonkey2text" onclick="upgradelock(4)">4/4</div> </div>
+<div class="container"> <img id ="BombTower2" src="./Images/Towers/BombTower.png" style="width:62px;height:71px;" onclick="upgradelock(5)"></img><div class="centered" id="BombTower2text" onclick="upgradelock(5)">4/4</div> </div>
+<div class="container"> <img id ="IceTower2" src="./Images/Towers/IceTower.png" style="width:62px;height:71px;" onclick="upgradelock(6)"></img><div class="centered" id="IceTower2text" onclick="upgradelock(6)">4/4</div> </div>
+<div class="container"> <img id ="GlueGunner2" src="./Images/Towers/GlueGunner.png" style="width:62px;height:71px;" onclick="upgradelock(7)"></img><div class="centered" id="GlueGunner2text" onclick="upgradelock(7)">4/4</div> </div>
+<div class="container"> <img id ="MonkeyBuccaneer2" src="./Images/Towers/MonkeyBuccaneer.png" style="width:62px;height:71px;" onclick="upgradelock(8)"></img><div class="centered" id="MonkeyBuccaneer2text" onclick="upgradelock(8)">4/4</div> </div>
+<div class="container"> <img id ="MonkeyAce2" src="./Images/Towers/MonkeyAce.png" style="width:62px;height:71px;" onclick="upgradelock(9)"></img><div class="centered" id="MonkeyAce2text" onclick="upgradelock(9)">4/4</div> </div>
+<div class="container"> <img id ="SuperMonkey2" src="./Images/Towers/SuperMonkey.png" style="width:62px;height:71px;" onclick="upgradelock(10)"></img><div class="centered" id="SuperMonkey2text" onclick="upgradelock(10)">4/4</div> </div>
+<div class="container"> <img id ="MonkeyApprentice2" src="./Images/Towers/MonkeyApprentice.png" style="width:62px;height:71px;" onclick="upgradelock(11)"></img><div class="centered" id="MonkeyApprentice2text" onclick="upgradelock(11)">4/4</div> </div>
+<div class="container"> <img id ="MonkeyVillage2" src="./Images/Towers/MonkeyVillage.png" style="width:62px;height:71px;" onclick="upgradelock(12)"></img><div class="centered" id="MonkeyVillage2text" onclick="upgradelock(12)">4/4</div> </div>
+<div class="container"> <img id ="BananaFarm2" src="./Images/Towers/BananaFarm.png" style="width:62px;height:71px;" onclick="upgradelock(13)"></img><div class="centered" id="BananaFarm2text" onclick="upgradelock(13)">4/4</div> </div>
+<div class="container"> <img id ="MortarTower2" src="./Images/Towers/MortarTower.png" style="width:62px;height:71px;" onclick="upgradelock(14)"></img><div class="centered" id="MortarTower2text" onclick="upgradelock(14)">4/4</div> </div>
+<div class="container"> <img id ="DartlingGunner2" src="./Images/Towers/DartlingGunner.png" style="width:62px;height:71px;" onclick="upgradelock(15)"></img><div class="centered" id="DartlingGunner2text" onclick="upgradelock(15)">4/4</div> </div>
+<div class="container"> <img id ="HeliPilot2" src="./Images/Towers/HeliPilot.png" style="width:62px;height:71px;" onclick="upgradelock(16)"></img><div class="centered" id="HeliPilot2text" onclick="upgradelock(16)">4/4</div> </div>
+<div class="container"> <img id ="MonkeyEngineer2" src="./Images/Towers/MonkeyEngineer.png" style="width:62px;height:71px;" onclick="upgradelock(17)"></img><div class="centered" id="MonkeyEngineer2text" onclick="upgradelock(17)">4/4</div> </div>
+<div class="container"> <img id ="Bloonchipper2" src="./Images/Towers/Bloonchipper.png" style="width:62px;height:71px;" onclick="upgradelock(18)"></img><div class="centered" id="Bloonchipper2text" onclick="upgradelock(18)">4/4</div> </div>
+<div class="container"> <img id ="MonkeySub2" src="./Images/Towers/MonkeySub.png" style="width:62px;height:71px;" onclick="upgradelock(19)"></img><div class="centered" id="MonkeySub2text" onclick="upgradelock(19)">4/4</div> </div>
+</div>
+ <p>&nbsp;Disable Lab Upgrades: </p>
+<img id ="AbilityCooldown" src="./Images/Lab/AbilityCooldown.png" style="width:62px;height:71px;" onclick="lablock(0)"></img>
+<img id ="AttackSpeed" src="./Images/Lab/AttackSpeed.png" style="width:62px;height:71px;" onclick="lablock(1)"></img>
+<img id ="BigBloonSabotage" src="./Images/Lab/BigBloonSabotage.png" style="width:62px;height:71px;" onclick="lablock(2)"></img>
+<img id ="DoublePierce" src="./Images/Lab/DoublePierce.png" style="width:62px;height:71px;" onclick="lablock(3)"></img>
+<img id ="SellAmount" src="./Images/Lab/SellAmount.png" style="width:62px;height:71px;" onclick="lablock(4)"></img>
+<img id ="StartingCash" src="./Images/Lab/StartingCash.png" style="width:62px;height:71px;" onclick="lablock(5)"></img>
+<img id ="StartingLives" src="./Images/Lab/StartingLives.png" style="width:62px;height:71px;" onclick="lablock(6)"></img>
+<p> </p>
+<button onclick="bloonranks()">Change Bloon Ranks</button>
+<p> </p>
+<button onclick="finished()">Finished</button>
+<textarea id="output" rows="20" cols="50"></textarea> 
 	<script>
 	//Defaut Declarations
 		var nk_title = "";
-		var nk_track = "";
+		var nk_track = "monkey_lane";
 		var nk_rank_required = 30;
 		var nk_is_new = false;
 		var nk_id = 2019;
@@ -127,6 +212,7 @@
 		var nk_description = "";
 		var LockedTowers = [];
 		var LockedUpgrades = [];
+
 	//Game Properties
 		var CanSave = false;
 		var CanEarnMoney = true;
@@ -185,9 +271,17 @@
 
 
 		//EXTRA FOR CODE
+		var map = "monkey_lane";
 		var mapnames = ["monkey_lane", "bloom", "present_delivery", "rabbit_holes", "snowy_backyard", "sprint_track", "express_shipping", "checkers", "skull_peak", "lobby", "3_times_around", "grotto", "patch", "hedge_maze", "fireworks", "brick_wall", "z_factor", "maze", "frozen_lake", "roswell", "space_truckin", "walk_in_the_park", "ancient_tomb", "hearthside", "six_feet", "river_rapids", "wattle_trees", "pyramids", "dune_sea", "lava_fields", "ice_flow", "country_road", "jungle", "workshop", "bloon_of_clubs", "archipelago", "crop_circles", "slalom", "stream", "dock_side", "villageshore", "trick_or_treat", "battle_knot","candyland","crypt_keeper", "long_range", "water_hazard", "rink_revenge", "challenger_deep", "scorched_earth", "u_turn","the_great_divide","the_eye","one_direction", "lightning_scar","go_with_the_flow","mount_magma","siege","double_double_crossover","tunnels","castle","against_the_clock","drag_strip","canyon","treetops","runway","down_the_drain","benguela","web","forestpath","tar_pit","main_street","radioactive"];
-
-
+		var towernames = ["DartMonkey", "TackTower", "SniperMonkey", "BoomerangThrower", "NinjaMonkey", "BombTower", "IceTower", "GlueGunner", "MonkeyBuccaneer", "MonkeyAce", "SuperMonkey", "MonkeyApprentice", "MonkeyVillage", "BananaFarm", "MortarTower", "DartlingGunner", "HeliPilot", "MonkeyEngineer", "Bloonchipper", "MonkeySub"];
+		var LockedTowerNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		var NumLockedTowers = 0;
+		var LockedUpgradeIds = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		var NumUpgradeLocks = 0;
+		var labnames = ["AbilityCooldown","AttackSpeed","BigBloonSabotage","DoublePierce","SellAmount","StartingCash","StartingLives"];
+		var LabNums = [0,0,0,0,0,0,0];
+		var NumLabBlocks = 0;
+		var bloonsname = ["Red","Blue","Green","Yellow","Pink","Black", "White","Lead","Zebra","Rainbow","Ceramic","Golden","MOAB","BFB","ZOMG"];
 		//Towers is going to be a click to deactivate kind of deal
 
 		//Maps will be a switch case specifying which
@@ -195,12 +289,26 @@
 		//Checkboxes for specailities
 		//UI
 var modal = document.getElementById('modal');
+var modal2 = document.getElementById('modal2');
 var span = document.getElementsByClassName("close")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+document.getElementById('output').style.display = "none";
 function selectmap() {
 modal.style.display = "block";
 }
+function bloonranks() {
+	modal2.style.display = "block";
+}
 span.onclick = function() {
 	modal.style.display = "none";
+}
+span2.onclick = function() {
+	modal2.style.display = "none";
+}
+
+function changegamemode(value){
+	console.log(value);
+	nk_mode = value;
 }
 
 function changemap(newmap){
@@ -208,9 +316,161 @@ map = newmap;
 document.getElementById("changemapbtn").src = "\.\/Images\/Tracks\/" + mapnames[map] + "_thumb.jpg";
 console.log("New Map = " + mapnames[map]);
 }
-/*for(var i=0; i<mapnames.length;i++){
-	console.log("\<img id \=\"map\" src=\"\.\/Images\/Tracks\/" + mapnames[i] + "_thumb.jpg\" style\=\"width\:250px\;height\:180px;\" onclick\=\"changemap\(" + i + "\)\"\>\<\/img\>");
-};*/
+
+function locktower(towerid){
+	if(LockedTowerNums[towerid] == 0){
+	document.getElementById(towernames[towerid]).style.filter = "grayscale(100%)";
+	LockedTowerNums[towerid] = 1;
+	} else if(LockedTowerNums[towerid] == 1){
+	document.getElementById(towernames[towerid]).style.filter = "grayscale(0%)";
+	LockedTowerNums[towerid] = 0;
+	}
+	makearray();
+	console.log(NumLockedTowers);
+	console.log(LockedTowerNums);
+	console.log(LockedTowers);
+}
+
+function changebloon(newvalue, type){
+	var test = bloonsname[type] + "2";
+	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue] + ".png"
+}
+
+function makearray(){
+	LockedTowers = [];
+	NumLockedTowers = 0;
+	for(var i=0; i<towernames.length;i++){
+	if(LockedTowerNums[i] == 1){
+	switch(i) {
+	case 0:
+    LockedTowers[NumLockedTowers] = "DartMonkey";
+    break;
+	case 1:
+    LockedTowers[NumLockedTowers] = "TackTower";
+    break;
+ 	 case 2:
+     LockedTowers[NumLockedTowers] = "SniperMonkey";
+    break;
+  	case 3:
+    LockedTowers[NumLockedTowers] = "BoomerangThrower";
+    break;
+ 	 case 4:
+    LockedTowers[NumLockedTowers] = "NinjaMonkey";
+    break;
+  	case 5:
+    LockedTowers[NumLockedTowers] = "BombTower";
+    break;
+    case 6:
+    LockedTowers[NumLockedTowers] = "IceTower";
+    break;
+  	case 7:
+    LockedTowers[NumLockedTowers] = "GlueGunner";
+    break;
+    case 8:
+    LockedTowers[NumLockedTowers] = "MonkeyBuccaneer";
+    break;
+    case 9:
+    LockedTowers[NumLockedTowers] = "MonkeyAce";
+    break;
+    case 10:
+    LockedTowers[NumLockedTowers] = "SuperMonkey";
+    break;
+    case 11:
+    LockedTowers[NumLockedTowers] = "MonkeyApprentice";
+    break;
+    case 12:
+    LockedTowers[NumLockedTowers] = "MonkeyVillage";
+    break;
+    case 13:
+    LockedTowers[NumLockedTowers] = "BananaFarm";
+    break;
+    case 14:
+    LockedTowers[NumLockedTowers] = "MortarTower";
+    break;
+    case 15:
+    LockedTowers[NumLockedTowers] = "DartlingGunner";
+    break;
+    case 16:
+    LockedTowers[NumLockedTowers] = "HeliPilot";
+    break;
+    case 17:
+    LockedTowers[NumLockedTowers] = "MonkeyEngineer";
+    break;
+    case 18:
+    LockedTowers[NumLockedTowers] = "Bloonchipper";
+    break;
+    case 19:
+    LockedTowers[NumLockedTowers] = "MonkeySub";
+    break;
+	}
+	NumLockedTowers++;
+	}
+}
+}
+
+function lablock(labid){
+	if(LabNums[labid] == 0){
+		LabNums[labid] = 1;
+		document.getElementById(labnames[labid]).style.filter = "grayscale(100%)";
+	} else if(LabNums[labid] == 1){
+		LabNums[labid] = 0;
+		document.getElementById(labnames[labid]).style.filter = "grayscale(0%)";
+	}
+	makelabarray();
+}
+
+function makelabarray(){
+	NumLabBlocks = 0;
+	BlockedLabUpgrades = [];
+	for(var i = 0; i<labnames.length; i++){
+		if(LabNums[i] == 1){
+			BlockedLabUpgrades[NumLabBlocks] = labnames[i];
+			NumLabBlocks++;
+		}
+	}
+	console.log(BlockedLabUpgrades);
+}
+
+function upgradelock(towerid){
+	var left = prompt("Please enter the amount of upgrades you can buy on the left side", "4");
+	var right = prompt("Please enter the amount of upgrades you can buy on the right side", "4");
+	if(left == null){
+		left = "4";
+	}
+	if(right == null){
+		right = "4";
+	}
+	document.getElementById(towernames[towerid] + "2text").innerHTML = left + "/" + right;
+	LockedUpgradeIds[towerid] = left + "/" + right;
+
+}
+
+function makearray2() {
+	document.getElementById('output').innerHTML = "";
+	for(var i = 0; i<towernames.length; i++){
+	if(LockedUpgradeIds[i] != 0){
+		document.getElementById('output').innerHTML += "            {\n                \"Type\": " + towernames[i] + "\", \n                \"Upgrades\": [\n                    " + LockedUpgradeIds[i].substring(0,1) + ",\n                    " + LockedUpgradeIds[i].substring(2) + "\n                ]\n            },\n";
+	}
+	//if last indedx remove last thingy with substirng
+}
+}
+
+function updatedata(){
+	nk_rank_required = document.getElementById('rank').value;
+	nk_description = document.getElementById('description').value;
+
+	
+}
+
+function finished(){
+	document.getElementById('output').style.display = "block";
+	makearray2();
+	updatedata();
+}
+
+for(var i=0; i<labnames.length;i++){
+	console.log("\<img id \=\"" + labnames[i] + "\" src=\"\.\/Images\/Lab\/" + labnames[i] + ".png\" style\=\"width\:62px\;height\:71px;\" onclick\=\"lablock\(" + i + "\)\"\>\<\/img\>");
+};
 	</script>
 	<style>
 	@font-face { font-family: btd5; src: url('./Font/oetztype.ttf'); } 
@@ -256,6 +516,83 @@ console.log("New Map = " + mapnames[map]);
     text-decoration: none;
     cursor: pointer;
 }
+	.modal2 {
+    display: none;
+    z-index: 1;
+    padding-top: 100px;
+    padding: 0;
+
+	position: absolute;
+    top: 50%;
+    left:50%;
+    margin-left: -400px;
+    margin-top: -200px;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0);
+}
+.modal-content2 {
+	background-image: url("");
+    background-color: #fefefe;
+    margin: auto;
+    z-index: 1;
+    padding-top: 0px;
+    padding: 1px;
+    border: 1px solid #888;
+    width: 800px;
+    height: 450px;
+
+}
+.close2 {
+	position:absolute;
+	right: 14px;
+	padding: 0px;
+    color: #aaaaaa;
+    float: right;
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+}
+.close2:hover,
+.close2:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+  display:inline-block
+}
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+		font-size: 24px;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 350px;
+  height: 15px;
+  border-radius: 5px;
+  background: #38200F;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider::-moz-range-thumb {
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url('./Images/UI/sliderbtn.png');
+  cursor: pointer;
+}
 p {
 	font-family: btd5;
 	color: white;
@@ -289,6 +626,18 @@ select {
 }
 option {
 
+}
+button {
+	text-align-last:center;
+	background-color: #66AAFF;
+	font-family: btd5;
+	color: white;
+	text-shadow:
+		-1px -1px 0 #000,
+		1px -1px 0 #000,
+		-1px 1px 0 #000,
+		1px 1px 0 #000;
+		font-size: 18px;
 }
 </style>
 </body>
