@@ -85,7 +85,7 @@
 <div id="modal2" class="modal2">	<div style="max-width: 500px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class">	<div style="max-width: 500px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content2">  
 	<span class="close2" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
 <div><img id ="red" src="./Images/Bloon/Red.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="0" class="slider" id="RedSlider" oninput="changebloon(this.value,0)"><img id ="Red2" src="./Images/Bloon/Red.png" style="width: 47px; height: 63px;"></div>
-<div><img id ="blue" src="./Images/Bloon/Blue.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="1" class="slider" id="BlueSlider" oninput="changebloon(this.value,1)"><img id ="Blue2" src="./Images/Bloon/Blue.png" style="width: 47px; height: 63px;"></div>
+<div><img id ="blue" src="./Images/Bloon/Blue.png" style="width: 47px; height: 63px;"></img><input type="range" min="-1" max="13" value="0" class="slider" id="BlueSlider" oninput="changebloon(this.value,1)"><img id ="Blue2" src="./Images/Bloon/Blue.png" style="width: 47px; height: 63px;"></div>
 <div><img id ="green" src="./Images/Bloon/Green.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="2" class="slider" id="GreenSlider" oninput="changebloon(this.value,2)"><img id ="Green2" src="./Images/Bloon/Green.png" style="width: 47px; height: 63px;"></div>
 <div><img id ="yellow" src="./Images/Bloon/Yellow.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="3" class="slider" id="YellowSlider" oninput="changebloon(this.value,3)"><img id ="Yellow2" src="./Images/Bloon/Yellow.png" style="width: 47px; height: 63px;"></div>
 <div><img id ="pink" src="./Images/Bloon/Pink.png" style="width: 47px; height: 63px;"></img><input type="range" min="0" max="14" value="4" class="slider" id="PinkSlider" oninput="changebloon(this.value,4)"><img id ="Pink2" src="./Images/Bloon/Pink.png" style="width: 47px; height: 63px;"></div>
@@ -136,7 +136,7 @@
     <input type="text" id="startround" style="width: 75px" value="1">
     </p>
     <p>&nbsp;End Round:
-    <input type="text" id="startround" style="width: 75px" value="DEFAULT">
+    <input type="text" id="endround" style="width: 75px" value="DEFAULT">
     </p>
 </div>
 </div>
@@ -226,8 +226,8 @@
 		//Setup
 		var Setup = [];
 		var Towers = [];
-		var Money = 650;
-		var Health = 100;
+		var StartingCash = 650;
+		var StartingLives = 100;
 		var StartRound = 1;
 		var Inventory = [];
 		
@@ -333,7 +333,9 @@ function locktower(towerid){
 
 function changebloon(newvalue, type){
 	var test = bloonsname[type] + "2";
-	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue] + ".png"
+	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue - (type * 2)] + ".png";
+	BloonLevelOffsets[type] = newvalue; 
+	console.log(BloonLevelOffsets);
 }
 
 function makearray(){
@@ -451,14 +453,60 @@ function makearray2() {
 	if(LockedUpgradeIds[i] != 0){
 		document.getElementById('output').innerHTML += "            {\n                \"Type\": " + towernames[i] + "\", \n                \"Upgrades\": [\n                    " + LockedUpgradeIds[i].substring(0,1) + ",\n                    " + LockedUpgradeIds[i].substring(2) + "\n                ]\n            },\n";
 	}
-	//if last indedx remove last thingy with substirng
+	if(i == 19){
+	document.getElementById('output').innerHTML = document.getElementById('output').innerHTML.substring(0, document.getElementById('output').innerHTML.length - 2)
+	}
 }
 }
 
 function updatedata(){
 	nk_rank_required = document.getElementById('rank').value;
 	nk_description = document.getElementById('description').value;
+	var cash = document.getElementById('startcash').value;
+	if(cash == "DEFAULT"){
+			StartingCash = 650;
+	} else {
+		StartingCash = document.getElementById('startcash').value;
+	}
+	if(document.getElementById("startlives").value == "DEFAULT") {
+		switch(nk_mode){
+			case 0:
+			StartingLives = 200;
+			break;
+			case 1:
+			StartingLives = 150;
+			break;
+			case 2:
+			StartingLives = 100;
+			break;
+			case 3: 
+			StartingLives = 1;
+			break;
+			case 4:
+			StartingLives = 100;
+			break;
+			case 5:
+			StartingLives = 100;
+			break;
+		}
+	} else {
+		StartingLives = document.getElementById(startlives).value;
+	}
+	StartRound = document.getElementById('startround').value;
+	var cb = document.getElementById('CanSave');
+	if(cb.checked == true){
+		CanSave = true;
+	} else {
+		CanSave = false;
+	}
 
+
+	console.log(BloonLevelOffsets);
+
+	MaxNumberOfTotalTowers = document.getElementById("maxmonkeys").value;
+	MaxNumberOfEachTower = document.getElementById("maxeachmonkeys").value;
+
+	//console.log(LockedUpgrades);
 	
 }
 
