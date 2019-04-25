@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html style="margin: 0px;height: 100%;width: 100%;">
 <head>  <meta charset="UTF-8"> <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
-<body bgcolor="#5A8FD5"  style="width:700px; height:100px;">
+<body bgcolor="#5A8FD5"  style="width:750px; height:100px;">
 	<img src="./Images/UI/benbtn.png" style="position: absolute;top: 0;padding: 7px;right: 0%;border:0;margin-left: auto;margin-right: auto;" onclick="advancedmode()">
 <div id="modal" class="modal">	<div style="max-width: 800px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class">	<div style="max-width: 800px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content">	
 	<span class="close" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
@@ -156,11 +156,21 @@
  <img id ="MonkeyVillage" src="./Images/Towers/MonkeyVillage.png" style="width:62px;height:71px;" onclick="locktower(12)"></img>
  <img id ="BananaFarm" src="./Images/Towers/BananaFarm.png" style="width:62px;height:71px;" onclick="locktower(13)"></img>
  <img id ="MortarTower" src="./Images/Towers/MortarTower.png" style="width:62px;height:71px;" onclick="locktower(14)"></img>
- <img id ="DartlingGunner" src="./Images/Towers/DartlingGunner.png" style="width:62px;height:71px;" onclick="locktower(15)"></img>
- <img id ="HeliPilot" src="./Images/Towers/HeliPilot.png" style="width:62px;height:71px;" onclick="locktower(16)"></img>
- <img id ="MonkeyEngineer" src="./Images/Towers/MonkeyEngineer.png" style="width:62px;height:71px;" onclick="locktower(17)"></img>
- <img id ="Bloonchipper" src="./Images/Towers/Bloonchipper.png" style="width:62px;height:71px;" onclick="locktower(18)"></img>
- <img id ="MonkeySub" src="./Images/Towers/MonkeySub.png" style="width:62px;height:71px;" onclick="locktower(19)"></img>
+ <img id ="DartlingGunner" src="./Images/Towers/DartlingGun.png" style="width:62px;height:71px;" onclick="locktower(15)"></img>
+ <img id ="SpikeFactory" src="./Images/Towers/SpikeFactory.png" style="width:62px;height:71px;" onclick="locktower(16)"></img>
+ <img id ="HeliPilot" src="./Images/Towers/HeliPilot.png" style="width:62px;height:71px;" onclick="locktower(17)"></img>
+ <img id ="MonkeyEngineer" src="./Images/Towers/MonkeyEngineer.png" style="width:62px;height:71px;" onclick="locktower(18)"></img>
+ <img id ="Bloonchipper" src="./Images/Towers/Bloonchipper.png" style="width:62px;height:71px;" onclick="locktower(19)"></img>
+ <img id ="MonkeySub" src="./Images/Towers/MonkeySub.png" style="width:62px;height:71px;" onclick="locktower(20)"></img>
+ <img id ="AngrySquirrel" src="./Images/Towers/AngrySquirrel.png" style="width:62px;height:71px;" onclick="locktower(21)"></img>
+<img id ="BananaFarmer" src="./Images/Towers/BananaFarmer.png" style="width:62px;height:71px;" onclick="locktower(22)"></img>
+<img id ="BeeKeeper" src="./Images/Towers/BeeKeeper.png" style="width:62px;height:71px;" onclick="locktower(23)"></img>
+<img id ="BloonberryBush" src="./Images/Towers/BloonberryBush.png" style="width:62px;height:71px;" onclick="locktower(24)"></img>
+<img id ="BloonsdayDevice" src="./Images/Towers/BloonsdayDevice.png" style="width:62px;height:71px;" onclick="locktower(25)"></img>
+<img id ="MeerkatSpy" src="./Images/Towers/MeerkatSpy.png" style="width:62px;height:71px;" onclick="locktower(26)"></img>
+<img id ="Radadactyl" src="./Images/Towers/Radadactyl.png" style="width:62px;height:71px;" onclick="locktower(27)"></img>
+<img id ="SuperMonkeyStorm" src="./Images/Towers/SuperMonkeyStorm.png" style="width:62px;height:71px;" onclick="locktower(28)"></img>
+<img id ="TribalTurtle" src="./Images/Towers/TribalTurtle.png" style="width:62px;height:71px;" onclick="locktower(29)"></img>
  <p>&nbsp;Max Monkeys:
     <input type="text" id="maxmonkeys" style="width: 30px" value="-1">
     </p>
@@ -184,11 +194,12 @@
 <div class="container"> <img id ="MonkeyVillage2" src="./Images/Towers/MonkeyVillage.png" style="width:62px;height:71px;" onclick="upgradelock(12)"></img><div class="centered" id="MonkeyVillage2text" onclick="upgradelock(12)">4/4</div> </div>
 <div class="container"> <img id ="BananaFarm2" src="./Images/Towers/BananaFarm.png" style="width:62px;height:71px;" onclick="upgradelock(13)"></img><div class="centered" id="BananaFarm2text" onclick="upgradelock(13)">4/4</div> </div>
 <div class="container"> <img id ="MortarTower2" src="./Images/Towers/MortarTower.png" style="width:62px;height:71px;" onclick="upgradelock(14)"></img><div class="centered" id="MortarTower2text" onclick="upgradelock(14)">4/4</div> </div>
-<div class="container"> <img id ="DartlingGunner2" src="./Images/Towers/DartlingGunner.png" style="width:62px;height:71px;" onclick="upgradelock(15)"></img><div class="centered" id="DartlingGunner2text" onclick="upgradelock(15)">4/4</div> </div>
-<div class="container"> <img id ="HeliPilot2" src="./Images/Towers/HeliPilot.png" style="width:62px;height:71px;" onclick="upgradelock(16)"></img><div class="centered" id="HeliPilot2text" onclick="upgradelock(16)">4/4</div> </div>
-<div class="container"> <img id ="MonkeyEngineer2" src="./Images/Towers/MonkeyEngineer.png" style="width:62px;height:71px;" onclick="upgradelock(17)"></img><div class="centered" id="MonkeyEngineer2text" onclick="upgradelock(17)">4/4</div> </div>
-<div class="container"> <img id ="Bloonchipper2" src="./Images/Towers/Bloonchipper.png" style="width:62px;height:71px;" onclick="upgradelock(18)"></img><div class="centered" id="Bloonchipper2text" onclick="upgradelock(18)">4/4</div> </div>
-<div class="container"> <img id ="MonkeySub2" src="./Images/Towers/MonkeySub.png" style="width:62px;height:71px;" onclick="upgradelock(19)"></img><div class="centered" id="MonkeySub2text" onclick="upgradelock(19)">4/4</div> </div>
+<div class="container"> <img id ="DartlingGun2" src="./Images/Towers/DartlingGun.png" style="width:62px;height:71px;" onclick="upgradelock(15)"></img><div class="centered" id="DartlingGunner2text" onclick="upgradelock(15)">4/4</div> </div>
+<div class="container"> <img id ="SpikeFactory2" src="./Images/Towers/SpikeFactory.png" style="width:62px;height:71px;" onclick="upgradelock(16)"></img><div class="centered" id="DartlingGunner2text" onclick="upgradelock(16)">4/4</div> </div>
+<div class="container"> <img id ="HeliPilot2" src="./Images/Towers/HeliPilot.png" style="width:62px;height:71px;" onclick="upgradelock(17)"></img><div class="centered" id="HeliPilot2text" onclick="upgradelock(17)">4/4</div> </div>
+<div class="container"> <img id ="MonkeyEngineer2" src="./Images/Towers/MonkeyEngineer.png" style="width:62px;height:71px;" onclick="upgradelock(18)"></img><div class="centered" id="MonkeyEngineer2text" onclick="upgradelock(18)">4/4</div> </div>
+<div class="container"> <img id ="Bloonchipper2" src="./Images/Towers/Bloonchipper.png" style="width:62px;height:71px;" onclick="upgradelock(19)"></img><div class="centered" id="Bloonchipper2text" onclick="upgradelock(19)">4/4</div> </div>
+<div class="container"> <img id ="MonkeySub2" src="./Images/Towers/MonkeySub.png" style="width:62px;height:71px;" onclick="upgradelock(20)"></img><div class="centered" id="MonkeySub2text" onclick="upgradelock(20)">4/4</div> </div>
 </div>
  <p>&nbsp;Disable Lab Upgrades: </p>
 <img id ="AbilityCooldown" src="./Images/Lab/AbilityCooldown.png" style="width:62px;height:71px;" onclick="lablock(0)"></img>
@@ -297,10 +308,10 @@
 		//EXTRA FOR CODE
 		var map = "monkey_lane";
 		var mapnames = ["monkey_lane", "bloom", "present_delivery", "rabbit_holes", "snowy_backyard", "sprint_track", "express_shipping", "checkers", "skull_peak", "lobby", "3_times_around", "grotto", "patch", "hedge_maze", "fireworks", "brick_wall", "z_factor", "maze", "frozen_lake", "roswell", "space_truckin", "walk_in_the_park", "ancient_tomb", "hearthside", "six_feet", "river_rapids", "wattle_trees", "pyramids", "dune_sea", "lava_fields", "ice_flow", "country_road", "jungle", "workshop", "bloon_of_clubs", "archipelago", "crop_circles", "slalom", "stream", "dock_side", "villageshore", "trick_or_treat", "battle_knot","candyland","crypt_keeper", "long_range", "water_hazard", "rink_revenge", "challenger_deep", "scorched_earth", "u_turn","the_great_divide","the_eye","one_direction", "lightning_scar","go_with_the_flow","mount_magma","siege","double_double_crossover","tunnels","castle","against_the_clock","drag_strip","canyon","treetops","runway","down_the_drain","benguela","web","forestpath","tar_pit","main_street","radioactive"];
-		var towernames = ["DartMonkey", "TackTower", "SniperMonkey", "BoomerangThrower", "NinjaMonkey", "BombTower", "IceTower", "GlueGunner", "MonkeyBuccaneer", "MonkeyAce", "SuperMonkey", "MonkeyApprentice", "MonkeyVillage", "BananaFarm", "MortarTower", "DartlingGunner", "HeliPilot", "MonkeyEngineer", "Bloonchipper", "MonkeySub"];
-		var LockedTowerNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		var towernames = ["DartMonkey", "TackTower", "SniperMonkey", "BoomerangThrower", "NinjaMonkey", "BombTower", "IceTower", "GlueGunner", "MonkeyBuccaneer", "MonkeyAce", "SuperMonkey", "MonkeyApprentice", "MonkeyVillage", "BananaFarm", "MortarTower", "DartlingGun", "SpikeFactory", "HeliPilot", "MonkeyEngineer", "Bloonchipper", "MonkeySub","AngrySquirrel","BananaFarmer","BeeKeeper","BloonberryBush","BloonsdayDevice","MeerkatSpy","Radadactyl","SuperMonkeyStorm","TribalTurtle"];
+		var LockedTowerNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 		var NumLockedTowers = 0;
-		var LockedUpgradeIds = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+		var LockedUpgradeIds = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 		var NumUpgradeLocks = 0;
 		var labnames = ["AbilityCooldown","AttackSpeed","BigBloonSabotage","DoublePierce","SellAmount","StartingCash","StartingLives"];
 		var LabNums = [0,0,0,0,0,0,0];
@@ -355,20 +366,13 @@ function locktower(towerid){
 	LockedTowerNums[towerid] = 0;
 	}
 	makearray();
-	console.log(NumLockedTowers);
-	console.log(LockedTowerNums);
-	console.log(LockedTowers);
 }
 
 function changebloon(newvalue, type){
 	var test = bloonsname[type] + "2";
 	var min = document.getElementById(bloonsname[type] + "Slider").min;
-
 	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue - min] + ".png";
 	BloonLevelOffsets[type] = newvalue; 
-
-	console.log("./Images/Bloon/" + bloonsname[newvalue - min] + newvalue + ".png")
-	console.log(BloonLevelOffsets);
 }
 
 function makearray(){
@@ -423,19 +427,49 @@ function makearray(){
     LockedTowers[NumLockedTowers] = "\"" + "MortarTower" + "\"";
     break;
     case 15:
-    LockedTowers[NumLockedTowers] = "\"" + "DartlingGunner" + "\"";
+    LockedTowers[NumLockedTowers] = "\"" + "DartlingGun" + "\"";
     break;
     case 16:
-    LockedTowers[NumLockedTowers] = "\"" + "HeliPilot" + "\"";
+    LockedTowers[NumLockedTowers] = "\"" + "SpikeFactory" + "\"";
     break;
     case 17:
-    LockedTowers[NumLockedTowers] = "\"" + "MonkeyEngineer" + "\"";
+    LockedTowers[NumLockedTowers] = "\"" + "HeliPilot" + "\"";
     break;
     case 18:
-    LockedTowers[NumLockedTowers] = "\"" + "Bloonchipper" + "\"";
+    LockedTowers[NumLockedTowers] = "\"" + "MonkeyEngineer" + "\"";
     break;
     case 19:
+    LockedTowers[NumLockedTowers] = "\"" + "Bloonchipper" + "\"";
+    break;
+    case 20:
     LockedTowers[NumLockedTowers] = "\"" + "MonkeySub" + "\"";
+    break;
+    case 21:
+    LockedTowers[NumLockedTowers] = "\"" + "AngrySquirrel" + "\"" + ",\"" + "AngrySquirrelPro" + "\"";
+    break;
+    case 22:
+    LockedTowers[NumLockedTowers] = "\"" + "BananaFarmer" + "\"" + ",\"" + "BananaFarmerPro" + "\"";
+    break;
+    case 23:
+    LockedTowers[NumLockedTowers] = "\"" + "BeeKeeper" + "\"" + ",\"" + "BeeKeeperPro" + "\"";
+    break;
+    case 24:
+    LockedTowers[NumLockedTowers] = "\"" + "BloonberryBush" + "\"" + ",\"" + "BloonberryBushPro" + "\"";
+    break;
+    case 25:
+    LockedTowers[NumLockedTowers] = "\"" + "BloonsdayDevice" + "\"" + ",\"" + "BloonsdayDevicePro" + "\"";
+    break;
+    case 26:
+    LockedTowers[NumLockedTowers] = "\"" + "MeerkatSpy" + "\"" + ",\"" + "MeerkatSpyPro" + "\"";
+    break;
+    case 27:
+    LockedTowers[NumLockedTowers] = "\"" + "Radadactyl" + "\"" + ",\"" + "RadadactylPro" + "\"";
+    break;
+    case 28:
+    LockedTowers[NumLockedTowers] = "\"" + "SuperMonkeyStorm" + "\"" + ",\"" + "SuperMonkeyStormPro" + "\"";
+    break;
+    case 29:
+    LockedTowers[NumLockedTowers] = "\"" + "TribalTurtle" + "\"" + ",\"" + "TribalTurtlePro" + "\"";
     break;
 	}
 	NumLockedTowers++;
@@ -504,7 +538,7 @@ function upgradelock(towerid){
 
 function makearray2() {
 	var numoflocks = 0;
-	for(var i = 0; i<towernames.length; i++){
+	for(var i = 0; i<20; i++){
 	if(LockedUpgradeIds[i] != 0){
 		document.getElementById('output').innerHTML += "\n            {\n                \"Type\": \"" + towernames[i] + "\", \n                \"Upgrades\": [\n                    " + LockedUpgradeIds[i].substring(0,1) + ",\n                    " + LockedUpgradeIds[i].substring(2) + "\n                ]\n            },";
 		numoflocks++;
@@ -641,8 +675,8 @@ function finished(){
 
 }
 
-for(var i=0; i<buildingnames.length;i++){
-	console.log("\<img id \=\"" + buildingnames[i] + "\" src=\"\.\/Images\/Buildings\/" + buildingnames[i] + ".png\" style\=\"width\:135px\;height\:93px;\" onclick\=\"buildingblock\(" + i + "\)\"\>\<\/img\>");
+for(var i=0; i<towernames.length;i++){
+	console.log("\<img id \=\"" + towernames[i] + "\" src=\"\.\/Images\/Towers\/" + towernames[i] + ".png\" style\=\"width\:62px\;height\:71px;\" onclick\=\"locktower\(" + i + "\)\"\>\<\/img\>");
 }
 	</script>
 	<style>
@@ -656,8 +690,8 @@ for(var i=0; i<buildingnames.length;i++){
 	position: absolute;
     top: 50%;
     left:50%;
-    margin-left: -400px;
-    margin-top: -200px;
+    margin-left: -180px;
+    margin-top: -450px;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0);
 }
@@ -698,8 +732,8 @@ for(var i=0; i<buildingnames.length;i++){
 	position: absolute;
     top: 50%;
     left:50%;
-    margin-left: -400px;
-    margin-top: -200px;
+    margin-left: -200px;
+    margin-top: 500px;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0);
 }
@@ -711,7 +745,7 @@ for(var i=0; i<buildingnames.length;i++){
     padding-top: 0px;
     padding: 1px;
     border: 1px solid #888;
-    width: 800px;
+    width: 500px;
     height: 450px;
 
 }
