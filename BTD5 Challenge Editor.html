@@ -140,6 +140,7 @@
     </p>
 </div>
 </div>
+ <p>&nbsp;Lock Towers: </p>
 <img id ="DartMonkey" src="./Images/Towers/DartMonkey.png" style="width:62px;height:71px;" onclick="locktower(0)"></img>
  <img id ="TackTower" src="./Images/Towers/TackTower.png" style="width:62px;height:71px;" onclick="locktower(1)"></img>
  <img id ="SniperMonkey" src="./Images/Towers/SniperMonkey.png" style="width:62px;height:71px;" onclick="locktower(2)"></img>
@@ -167,6 +168,7 @@
     <input type="text" id="maxeachmonkeys" style="width: 30px" value="-1">
     </p>
     <div>
+ <p>&nbsp;Lock Upgrades: </p>
 <div class="container"> <img id ="DartMonkey2" src="./Images/Towers/DartMonkey.png" style="width:62px;height:71px;" onclick="upgradelock(0)"></img><div class="centered" id="DartMonkey2text" onclick="upgradelock(0)">4/4</div> </div>
 <div class="container"> <img id ="TackTower2" src="./Images/Towers/TackTower.png" style="width:62px;height:71px;" onclick="upgradelock(1)"></img><div class="centered" id="TackTower2text" onclick="upgradelock(1)">4/4</div> </div>
 <div class="container"> <img id ="SniperMonkey2" src="./Images/Towers/SniperMonkey.png" style="width:62px;height:71px;" onclick="upgradelock(2)"></img><div class="centered" id="SniperMonkey2text" onclick="upgradelock(2)">4/4</div> </div>
@@ -196,11 +198,31 @@
 <img id ="SellAmount" src="./Images/Lab/SellAmount.png" style="width:62px;height:71px;" onclick="lablock(4)"></img>
 <img id ="StartingCash" src="./Images/Lab/StartingCash.png" style="width:62px;height:71px;" onclick="lablock(5)"></img>
 <img id ="StartingLives" src="./Images/Lab/StartingLives.png" style="width:62px;height:71px;" onclick="lablock(6)"></img>
+<p>&nbsp;Disable Speciality Buildings: </p>
+<img id ="AcePrivateHangar" src="./Images/Buildings/AcePrivateHangar.png" style="width:135px;height:93px;" onclick="buildingblock(0)"></img>
+<img id ="AlsCustomChippers" src="./Images/Buildings/AlsCustomChippers.png" style="width:135px;height:93px;" onclick="buildingblock(1)"></img>
+<img id ="BombingRange" src="./Images/Buildings/BombingRange.png" style="width:135px;height:93px;" onclick="buildingblock(2)"></img>
+<img id ="BoomerangDojo" src="./Images/Buildings/BoomerangDojo.png" style="width:135px;height:93px;" onclick="buildingblock(3)"></img>
+<img id ="DartlingAmmoDump" src="./Images/Buildings/DartlingAmmoDump.png" style="width:135px;height:93px;" onclick="buildingblock(4)"></img>
+<img id ="DartTrainingFacility" src="./Images/Buildings/DartTrainingFacility.png" style="width:135px;height:93px;" onclick="buildingblock(5)"></img>
+<img id ="EngineersWorkshop" src="./Images/Buildings/EngineersWorkshop.png" style="width:135px;height:93px;" onclick="buildingblock(6)"></img>
+<img id ="GlueSupplyDepot" src="./Images/Buildings/GlueSupplyDepot.png" style="width:135px;height:93px;" onclick="buildingblock(7)"></img>
+<img id ="HeloHangar" src="./Images/Buildings/HeloHangar.png" style="width:135px;height:93px;" onclick="buildingblock(8)"></img>
+<img id ="IceFortress" src="./Images/Buildings/IceFortress.png" style="width:135px;height:93px;" onclick="buildingblock(9)"></img>
+<img id ="MageSpire" src="./Images/Buildings/MageSpire.png" style="width:135px;height:93px;" onclick="buildingblock(10)"></img>
+<img id ="MortarEmplacement" src="./Images/Buildings/MortarEmplacement.png" style="width:135px;height:93px;" onclick="buildingblock(11)"></img>
+<img id ="NinjaAcademy" src="./Images/Buildings/NinjaAcademy.png" style="width:135px;height:93px;" onclick="buildingblock(12)"></img>
+<img id ="PirateCove" src="./Images/Buildings/PirateCove.png" style="width:135px;height:93px;" onclick="buildingblock(13)"></img>
+<img id ="RifleRange" src="./Images/Buildings/RifleRange.png" style="width:135px;height:93px;" onclick="buildingblock(14)"></img>
+<img id ="SpikesRUs" src="./Images/Buildings/SpikesRUs.png" style="width:135px;height:93px;" onclick="buildingblock(15)"></img>
+<img id ="SubConstructionYard" src="./Images/Buildings/SubConstructionYard.png" style="width:135px;height:93px;" onclick="buildingblock(16)"></img>
+<img id ="SuperMonkeyLair" src="./Images/Buildings/SuperMonkeyLair.png" style="width:135px;height:93px;" onclick="buildingblock(17)"></img>
+<img id ="TackResearchCenter" src="./Images/Buildings/TackResearchCenter.png" style="width:135px;height:93px;" onclick="buildingblock(18)"></img>
 <p> </p>
 <button onclick="bloonranks()">Change Bloon Ranks</button>
 <p> </p>
 <button onclick="finished()">Finished</button>
-<textarea id="output" rows="20" cols="50"></textarea> 
+<textarea id="output" rows="25" cols="75"></textarea> 
 	<script>
 	//Defaut Declarations
 		var nk_title = "";
@@ -214,6 +236,7 @@
 		var LockedUpgrades = [];
 
 	//Game Properties
+		var TargetRound = 0;
 		var CanSave = false;
 		var CanEarnMoney = true;
 		var MoneyPerRound = 100;
@@ -221,6 +244,7 @@
 		var MaxNumberOfEachTower = -1;
 		var MaxNumberOfTotalTowers = -1;
 		var BlockedLabUpgrades = [];
+		var BlockedSpecialties = [];
 		var BloonLevelOffsets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 		//Setup
@@ -282,6 +306,10 @@
 		var LabNums = [0,0,0,0,0,0,0];
 		var NumLabBlocks = 0;
 		var bloonsname = ["Red","Blue","Green","Yellow","Pink","Black", "White","Lead","Zebra","Rainbow","Ceramic","Golden","MOAB","BFB","ZOMG"];
+		var buildingnames = ["AcePrivateHangar", "AlsCustomChippers", "BombingRange", "BoomerangDojo", "DartlingAmmoDump", "DartTrainingFacility", "EngineersWorkshop", "GlueSupplyDepot", "HeloHangar", "IceFortress", "MageSpire", "MortarEmplacement", "NinjaAcademy", "PirateCove", "RifleRange", "SpikesRUs", "SubConstructionYard", "SuperMonkeyLair", "TackResearchCenter"];
+		var NumBuildBlocks = 0;
+		var BuildNums = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
 		//Towers is going to be a click to deactivate kind of deal
 
 		//Maps will be a switch case specifying which
@@ -314,6 +342,7 @@ function changegamemode(value){
 function changemap(newmap){
 map = newmap;
 document.getElementById("changemapbtn").src = "\.\/Images\/Tracks\/" + mapnames[map] + "_thumb.jpg";
+nk_track = mapnames[map];
 console.log("New Map = " + mapnames[map]);
 }
 
@@ -349,64 +378,64 @@ function makearray(){
 	if(LockedTowerNums[i] == 1){
 	switch(i) {
 	case 0:
-    LockedTowers[NumLockedTowers] = "DartMonkey";
+    LockedTowers[NumLockedTowers] = "\"" + "DartMonkey" + "\"";
     break;
 	case 1:
-    LockedTowers[NumLockedTowers] = "TackTower";
+    LockedTowers[NumLockedTowers] = "\"" + "TackTower" + "\"";
     break;
  	 case 2:
-     LockedTowers[NumLockedTowers] = "SniperMonkey";
+     LockedTowers[NumLockedTowers] = "\"" + "SniperMonkey" + "\"";
     break;
   	case 3:
-    LockedTowers[NumLockedTowers] = "BoomerangThrower";
+    LockedTowers[NumLockedTowers] = "\"" + "BoomerangThrower" + "\"";
     break;
  	 case 4:
-    LockedTowers[NumLockedTowers] = "NinjaMonkey";
+    LockedTowers[NumLockedTowers] = "\"" + "NinjaMonkey" + "\"";
     break;
   	case 5:
-    LockedTowers[NumLockedTowers] = "BombTower";
+    LockedTowers[NumLockedTowers] = "\"" + "BombTower" + "\"";
     break;
     case 6:
-    LockedTowers[NumLockedTowers] = "IceTower";
+    LockedTowers[NumLockedTowers] = "\"" + "IceTower" + "\"";
     break;
   	case 7:
-    LockedTowers[NumLockedTowers] = "GlueGunner";
+    LockedTowers[NumLockedTowers] = "\"" + "GlueGunner" + "\"";
     break;
     case 8:
-    LockedTowers[NumLockedTowers] = "MonkeyBuccaneer";
+    LockedTowers[NumLockedTowers] = "\"" + "MonkeyBuccaneer" + "\"";
     break;
     case 9:
-    LockedTowers[NumLockedTowers] = "MonkeyAce";
+    LockedTowers[NumLockedTowers] = "\"" + "MonkeyAce" + "\"";
     break;
     case 10:
-    LockedTowers[NumLockedTowers] = "SuperMonkey";
+    LockedTowers[NumLockedTowers] = "\"" + "SuperMonkey" + "\"";
     break;
     case 11:
-    LockedTowers[NumLockedTowers] = "MonkeyApprentice";
+    LockedTowers[NumLockedTowers] = "\"" + "MonkeyApprentice" + "\"";
     break;
     case 12:
-    LockedTowers[NumLockedTowers] = "MonkeyVillage";
+    LockedTowers[NumLockedTowers] = "\"" + "MonkeyVillage" + "\"";
     break;
     case 13:
-    LockedTowers[NumLockedTowers] = "BananaFarm";
+    LockedTowers[NumLockedTowers] = "\"" + "BananaFarm" + "\"";
     break;
     case 14:
-    LockedTowers[NumLockedTowers] = "MortarTower";
+    LockedTowers[NumLockedTowers] = "\"" + "MortarTower" + "\"";
     break;
     case 15:
-    LockedTowers[NumLockedTowers] = "DartlingGunner";
+    LockedTowers[NumLockedTowers] = "\"" + "DartlingGunner" + "\"";
     break;
     case 16:
-    LockedTowers[NumLockedTowers] = "HeliPilot";
+    LockedTowers[NumLockedTowers] = "\"" + "HeliPilot" + "\"";
     break;
     case 17:
-    LockedTowers[NumLockedTowers] = "MonkeyEngineer";
+    LockedTowers[NumLockedTowers] = "\"" + "MonkeyEngineer" + "\"";
     break;
     case 18:
-    LockedTowers[NumLockedTowers] = "Bloonchipper";
+    LockedTowers[NumLockedTowers] = "\"" + "Bloonchipper" + "\"";
     break;
     case 19:
-    LockedTowers[NumLockedTowers] = "MonkeySub";
+    LockedTowers[NumLockedTowers] = "\"" + "MonkeySub" + "\"";
     break;
 	}
 	NumLockedTowers++;
@@ -424,13 +453,35 @@ function lablock(labid){
 	}
 	makelabarray();
 }
+function buildingblock(labid){
+	if(BuildNums[labid] == 0){
+		BuildNums[labid] = 1;
+		document.getElementById(buildingnames[labid]).style.filter = "grayscale(100%)";
+	} else if(BuildNums[labid] == 1){
+		BuildNums[labid] = 0;
+		document.getElementById(buildingnames[labid]).style.filter = "grayscale(0%)";
+	}
+	makebuildingarray();
+}
+
+function makebuildingarray(){
+	NumBuildBlocks = 0;
+	BlockedSpecialties = [];
+	for(var i = 0; i<buildingnames.length; i++){
+		if(BuildNums[i] == 1){
+			BlockedSpecialties[NumBuildBlocks] = "\"" + buildingnames[i] + "\"";
+			NumBuildBlocks++;
+		}
+	}
+	console.log(BlockedSpecialties);
+}
 
 function makelabarray(){
 	NumLabBlocks = 0;
 	BlockedLabUpgrades = [];
 	for(var i = 0; i<labnames.length; i++){
 		if(LabNums[i] == 1){
-			BlockedLabUpgrades[NumLabBlocks] = labnames[i];
+			BlockedLabUpgrades[NumLabBlocks] = "\"" + labnames[i] + "\"";
 			NumLabBlocks++;
 		}
 	}
@@ -452,18 +503,20 @@ function upgradelock(towerid){
 }
 
 function makearray2() {
-	document.getElementById('output').innerHTML = "";
+	var numoflocks = 0;
 	for(var i = 0; i<towernames.length; i++){
 	if(LockedUpgradeIds[i] != 0){
-		document.getElementById('output').innerHTML += "            {\n                \"Type\": " + towernames[i] + "\", \n                \"Upgrades\": [\n                    " + LockedUpgradeIds[i].substring(0,1) + ",\n                    " + LockedUpgradeIds[i].substring(2) + "\n                ]\n            },\n";
+		document.getElementById('output').innerHTML += "\n            {\n                \"Type\": \"" + towernames[i] + "\", \n                \"Upgrades\": [\n                    " + LockedUpgradeIds[i].substring(0,1) + ",\n                    " + LockedUpgradeIds[i].substring(2) + "\n                ]\n            },";
+		numoflocks++;
 	}
-	if(i == 19){
-	document.getElementById('output').innerHTML = document.getElementById('output').innerHTML.substring(0, document.getElementById('output').innerHTML.length - 2)
+	if(i == 19 && numoflocks != 0){
+	document.getElementById('output').innerHTML = document.getElementById('output').innerHTML.substring(0, document.getElementById('output').innerHTML.length - 1)
 	}
 }
 }
 
 function updatedata(){
+	nk_title = document.getElementById('name').value;
 	nk_rank_required = document.getElementById('rank').value;
 	nk_description = document.getElementById('description').value;
 	var cash = document.getElementById('startcash').value;
@@ -494,7 +547,7 @@ function updatedata(){
 			break;
 		}
 	} else {
-		StartingLives = document.getElementById(startlives).value;
+		StartingLives = document.getElementById("startlives").value;
 	}
 	StartRound = document.getElementById('startround').value;
 	var cb = document.getElementById('CanSave');
@@ -502,6 +555,34 @@ function updatedata(){
 		CanSave = true;
 	} else {
 		CanSave = false;
+	}
+	console.log(document.getElementById("endround").value);
+	console.log("hi");
+	if(document.getElementById("endround").value == "DEFAULT"){
+		nk_mode = Number(nk_mode);
+		switch(nk_mode){
+			case 0:
+			TargetRound = 50;
+			break;
+			case 1:
+			TargetRound = 65;
+			break;
+			case 2:
+			console.log("hi");
+			TargetRound = 85;
+			break;
+			case 3: 
+			TargetRound = 85;
+			break;
+			case 4:
+			TargetRound = -1;
+			break;
+			case 5:
+			TargetRound = -1;
+			break;
+		}
+	} else {
+		TargetRound = document.getElementById("endround").value;
 	}
 
 
@@ -516,19 +597,53 @@ function updatedata(){
 
 function finished(){
 	document.getElementById('output').style.display = "block";
-	makearray2();
 	updatedata();
-
+	var a = "";
 	//print
 	document.getElementById('output').innerHTML += "{\n    \"nk_description\": \"";
 	document.getElementById('output').innerHTML += nk_description;
-	document.getElementById('output').innerHTML += "\", \n    \"Rules\": {\n        "
+	document.getElementById('output').innerHTML += "\", \n    \"Rules\": {\n        \"BlockedSpecialties\": ["
+	document.getElementById('output').innerHTML += BlockedSpecialties;
+	document.getElementById('output').innerHTML += "], \n        \"TargetRound\": ";
+	document.getElementById('output').innerHTML += TargetRound;
+	document.getElementById('output').innerHTML += ", \n        \"CanSave\": ";
+	document.getElementById('output').innerHTML += CanSave;
+	document.getElementById('output').innerHTML += ", \n        \"LockedTowers\": [";
+	document.getElementById('output').innerHTML += LockedTowers;
+	document.getElementById('output').innerHTML += "], \n        \"LockedUpgrades\": [";
+	makearray2();
+	document.getElementById('output').innerHTML += "\n        ], \n        \"BlockedLabUpgrades\": [";
+	document.getElementById('output').innerHTML += BlockedLabUpgrades;
+	document.getElementById('output').innerHTML += "], \n        \"MaxNumberOfTotalTowers\": "
+	document.getElementById('output').innerHTML += MaxNumberOfTotalTowers;
+	document.getElementById('output').innerHTML += ", \n        \"MaxNumberOfEachTower\": ";
+	document.getElementById('output').innerHTML += MaxNumberOfEachTower;
+	document.getElementById('output').innerHTML += ", \n        \"BloonLevelOffsets\": [";
+	document.getElementById('output').innerHTML += BloonLevelOffsets;
+	document.getElementById('output').innerHTML += "], \n        \"Reward\": {\n            \"XPMultiplier\": 1,\n             \"MonkeyMoney\": 50,\n             \"XP\": 0,\n             \"MonkeyMoneyMultiplier\": 1\n        }\n    },  ";
+	document.getElementById('output').innerHTML += "\n    \"Setup\": {\n        \"Money\": ";
+	document.getElementById('output').innerHTML += StartingCash;
+	document.getElementById('output').innerHTML += ", \n        \"Health\": ";
+	document.getElementById('output').innerHTML += StartingLives;
+	document.getElementById('output').innerHTML += ", \n        \"StartRound\": ";
+	document.getElementById('output').innerHTML += StartRound;
+	document.getElementById('output').innerHTML += "\n    }, \n";
+	document.getElementById('output').innerHTML += "    \"nk_title\": \"";
+	document.getElementById('output').innerHTML += nk_title;
+	document.getElementById('output').innerHTML += "\", \n    \"nk_track\": \"";
+	document.getElementById('output').innerHTML += nk_track;
+	document.getElementById('output').innerHTML += "\", \n    \"nk_rank_required\": ";
+	document.getElementById('output').innerHTML += nk_rank_required;
+	document.getElementById('output').innerHTML += ", \n    \"nk_mode\": ";
+	document.getElementById('output').innerHTML += nk_mode;
+	document.getElementById('output').innerHTML += "\n}";
+
 
 }
 
-for(var i=0; i<labnames.length;i++){
-	console.log("\<img id \=\"" + labnames[i] + "\" src=\"\.\/Images\/Lab\/" + labnames[i] + ".png\" style\=\"width\:62px\;height\:71px;\" onclick\=\"lablock\(" + i + "\)\"\>\<\/img\>");
-};
+for(var i=0; i<buildingnames.length;i++){
+	console.log("\<img id \=\"" + buildingnames[i] + "\" src=\"\.\/Images\/Buildings\/" + buildingnames[i] + ".png\" style\=\"width\:135px\;height\:93px;\" onclick\=\"buildingblock\(" + i + "\)\"\>\<\/img\>");
+}
 	</script>
 	<style>
 	@font-face { font-family: btd5; src: url('./Font/oetztype.ttf'); } 
