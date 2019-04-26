@@ -279,13 +279,8 @@
 						<textarea id="output" rows="25" cols="75"></textarea> 
 						<script>
 //Defaut Declarations
-var nk_title = "";
-var nk_track = "monkey_lane";
-var nk_rank_required = 30;
 var nk_is_new = false;
 var nk_id = 2019;
-var nk_mode = 1;
-var nk_description = "";
 var LockedTowers = [];
 var LockedUpgrades = [];
 
@@ -304,8 +299,6 @@ var BloonLevelOffsets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 //Setup
 var Setup = [];
 var Towers = [];
-var StartingCash = 650;
-var StartRound = 1;
 var Inventory = [];
 
 //Reward
@@ -374,10 +367,6 @@ var modal2 = document.getElementById('modal2');
 var span = document.getElementsByClassName("close")[0];
 var span2 = document.getElementsByClassName("close2")[0];
 let challenge = {
-	Setup:{
-		Health:150,
-		Money:650
-	},
 	Rules:{
 		BlockedLabUpgrades:[],
 		BlockedSpecialties:[],
@@ -396,6 +385,11 @@ let challenge = {
 		},
 		TargetRound:65	
 
+	},
+	Setup:{
+		Health:150,
+		Money:650,
+		StartRound:1
 	},
 	nk_description:"",
 	nk_mode:1,
@@ -501,13 +495,13 @@ span2.onclick = function() {
 
 function changegamemode(value){
 	console.log(value);
-	nk_mode = value;
+	challenge.nk_mode = value;
 }
 
 function changemap(selected){
 	let map = [...selected.parentNode.children].indexOf(selected);
 	document.getElementById("changemapbtn").src = "\.\/Images\/Tracks\/" + mapnames[map] + "_thumb.jpg";
-	nk_track = mapnames[map];
+	challenge.nk_track = mapnames[map];
 	console.log("New Map = " + mapnames[map]);
 }
 
@@ -617,17 +611,17 @@ function makearray2() {
 }
 
 function updatedata(){
-	nk_title = document.getElementById('name').value;
-	nk_rank_required = document.getElementById('rank').value;
-	nk_description = document.getElementById('description').value;
+	challenge.nk_title = document.getElementById('name').value;
+	challenge.nk_rank_required = document.getElementById('rank').value;
+	challenge.nk_description = document.getElementById('description').value;
 	var cash = document.getElementById('startcash').value;
 	if(cash == "DEFAULT"){
-		StartingCash = 650;
+		challenge.Setup.Money = 650;
 	} else {
-		StartingCash = document.getElementById('startcash').value;
+		challenge.Setup.Money = document.getElementById('startcash').value;
 	}
 	if(document.getElementById("startlives").value == "DEFAULT") {
-		switch(nk_mode){
+		switch(challenge.nk_mode){
 			case 0:
 				challenge.Setup.Health = 200;
 				break;
@@ -650,7 +644,7 @@ function updatedata(){
 	} else {
 		challenge.Setup.Health = document.getElementById("startlives").value;
 	}
-	StartRound = document.getElementById('startround').value;
+	challenge.Setup.StartRound = document.getElementById('startround').value;
 	var cb = document.getElementById('CanSave');
 	if(cb.checked == true){
 		CanSave = true;
@@ -660,8 +654,8 @@ function updatedata(){
 	console.log(document.getElementById("endround").value);
 	console.log("hi");
 	if(document.getElementById("endround").value == "DEFAULT"){
-		nk_mode = Number(nk_mode);
-		switch(nk_mode){
+		challenge.nk_mode = Number(challenge.nk_mode);
+		switch(challenge.nk_mode){
 			case 0:
 				TargetRound = 50;
 				break;
@@ -703,7 +697,7 @@ function finished(){
 	var a = "";
 	//print
 	document.getElementById('output').innerHTML += "{\n    \"nk_description\": \"";
-	document.getElementById('output').innerHTML += nk_description;
+	document.getElementById('output').innerHTML += challenge.nk_description;
 	document.getElementById('output').innerHTML += "\", \n    \"Rules\": {\n        \"BlockedSpecialties\": ["
 		document.getElementById('output').innerHTML += BlockedSpecialties;
 	document.getElementById('output').innerHTML += "], \n        \"TargetRound\": ";
@@ -724,20 +718,20 @@ function finished(){
 	document.getElementById('output').innerHTML += BloonLevelOffsets;
 	document.getElementById('output').innerHTML += "], \n        \"Reward\": {\n            \"XPMultiplier\": 1,\n             \"MonkeyMoney\": 50,\n             \"XP\": 0,\n             \"MonkeyMoneyMultiplier\": 1\n        }\n    },  ";
 	document.getElementById('output').innerHTML += "\n    \"Setup\": {\n        \"Money\": ";
-	document.getElementById('output').innerHTML += StartingCash;
+	document.getElementById('output').innerHTML += challenge.Setup.Money;
 	document.getElementById('output').innerHTML += ", \n        \"Health\": ";
 	document.getElementById('output').innerHTML += challenge.Setup.Health;
 	document.getElementById('output').innerHTML += ", \n        \"StartRound\": ";
-	document.getElementById('output').innerHTML += StartRound;
+	document.getElementById('output').innerHTML += challenge.Setup.StartRound;;
 	document.getElementById('output').innerHTML += "\n    }, \n";
 	document.getElementById('output').innerHTML += "    \"nk_title\": \"";
-	document.getElementById('output').innerHTML += nk_title;
+	document.getElementById('output').innerHTML += challenge.nk_title;
 	document.getElementById('output').innerHTML += "\", \n    \"nk_track\": \"";
-	document.getElementById('output').innerHTML += nk_track;
+	document.getElementById('output').innerHTML += challenge.nk_track;
 	document.getElementById('output').innerHTML += "\", \n    \"nk_rank_required\": ";
-	document.getElementById('output').innerHTML += nk_rank_required;
+	document.getElementById('output').innerHTML += challenge.nk_rank_required;
 	document.getElementById('output').innerHTML += ", \n    \"nk_mode\": ";
-	document.getElementById('output').innerHTML += nk_mode;
+	document.getElementById('output').innerHTML += challenge.nk_mode;
 	document.getElementById('output').innerHTML += "\n}";
 
 
