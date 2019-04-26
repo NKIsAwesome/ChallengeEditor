@@ -403,6 +403,8 @@ let makeSliders = ()=>{
 		newBloon.className = 'bloonIcon';
 		newBloon.src = `./Images/Bloon/${s}.png`
 		output.appendChild(newBloon);
+		let br = document.createElement('br');
+		output.appendChild(br);
 
 	});	
 }
@@ -516,7 +518,7 @@ function locktower(selected){
 }
 
 function changebloon(newvalue, selected){
-	let type = Math.floor([...selected.parentNode.children].indexOf(selected)/2);
+	let type = Math.floor([...selected.parentNode.children].indexOf(selected)/4);
 	let pos = [...selected.parentNode.children].indexOf(selected);
 	var min = selected.min;
 	selected.parentNode.children[pos+1].src = "./Images/Bloon/" + bloonsname[newvalue - min] + ".png";
