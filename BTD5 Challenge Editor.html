@@ -281,29 +281,18 @@
 //Defaut Declarations
 var nk_is_new = false;
 var nk_id = 2019;
-var LockedTowers = [];
 var LockedUpgrades = [];
 
 //Game Properties
 var CanEarnMoney = true;
 var MoneyPerRound = 100;
 var CashPerPopModifier = 1.0;
-var MaxNumberOfEachTower = -1;
-var MaxNumberOfTotalTowers = -1;
-var BlockedLabUpgrades = [];
-var BloonLevelOffsets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 //Setup
 var Setup = [];
 var Towers = [];
 var Inventory = [];
 
-//Reward
-var Tokens = 0;
-var XPMultiplier = 1.0;
-var MonkeyMoney = 500;
-var XP = 0;
-var MonkeyMoneyMultiplier = 1;
 
 //Special Coniditions
 //Unknown
@@ -367,14 +356,15 @@ let challenge = {
 	Rules:{
 		BlockedLabUpgrades:[],
 		BlockedSpecialties:[],
-		BloonLevelOffsets:[],
+		BloonLevelOffsets:[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
 		CanSave:false,
 		LockedTowers:[],
 		LockedUpgrades:[],
 		MaxNumberOfEachTower:-1,
 		MaxNumberOfTotalTowers:-1,
 		Reward:{
-			MonkeyMoney:0,
+			Tokens:0,
+			MonkeyMoney:50,
 			MonkeyMoneyMultiplier:1,
 			XP:0,
 			XPMutliplier:1
@@ -518,15 +508,15 @@ function changebloon(newvalue, type){
 	var test = bloonsname[type] + "2";
 	var min = document.getElementById(bloonsname[type] + "Slider").min;
 	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue - min] + ".png";
-	BloonLevelOffsets[type] = newvalue; 
+	challenge.Rules.BloonLevelOffsets[type] = newvalue; 
 }
 
 function makearray(){
-	LockedTowers = [];
+	challenge.Rules.LockedTowers = [];
 	NumLockedTowers = 0;
 	for(var i=0; i<towernames.length;i++){
 		if(LockedTowerNums[i] == 1){
-			LockedTowers[NumLockedTowers] = `"${towernames[i]}"`;
+			challenge.Rules.LockedTowers[NumLockedTowers] = `"${towernames[i]}"`;
 			NumLockedTowers++;
 		}
 	}
@@ -568,14 +558,13 @@ function makebuildingarray(){
 
 function makelabarray(){
 	NumLabBlocks = 0;
-	BlockedLabUpgrades = [];
+	challenge.Rules.BlockedLabUpgrades = [];
 	for(var i = 0; i<labnames.length; i++){
 		if(LabNums[i] == 1){
-			BlockedLabUpgrades[NumLabBlocks] = "\"" + labnames[i] + "\"";
+			challenge.Rules.BlockedLabUpgrades[NumLabBlocks] = "\"" + labnames[i] + "\"";
 			NumLabBlocks++;
 		}
 	}
-	console.log(BlockedLabUpgrades);
 }
 
 function upgradelock(selected){
@@ -609,7 +598,7 @@ function makearray2() {
 function updatedata(){
 	challenge.nk_title = document.getElementById('name').value;
 	challenge.nk_rank_required = document.getElementById('rank').value;
-	challenge.nk_description = document.getElementById('description').value;
+	challenge.nk_description =document.getElementById('description').value;
 	var cash = document.getElementById('startcash').value;
 	if(cash == "DEFAULT"){
 		challenge.Setup.Money = 650;
@@ -674,10 +663,9 @@ function updatedata(){
 	}
 
 
-	console.log(BloonLevelOffsets);
 
-	MaxNumberOfTotalTowers = document.getElementById("maxmonkeys").value;
-	MaxNumberOfEachTower = document.getElementById("maxeachmonkeys").value;
+	challenge.Rules.MaxNumberOfTotalTowers = document.getElementById("maxmonkeys").value;
+	challenge.Rules.MaxNumberOfEachTower = document.getElementById("maxeachmonkeys").value;
 
 	//console.log(LockedUpgrades);
 
@@ -698,17 +686,16 @@ function finished(){
 	document.getElementById('output').innerHTML += ", \n        \"CanSave\": ";
 	document.getElementById('output').innerHTML += challenge.Rules.CanSave;
 	document.getElementById('output').innerHTML += ", \n        \"LockedTowers\": [";
-	document.getElementById('output').innerHTML += LockedTowers;
+	document.getElementById('output').innerHTML += challenge.Rules.LockedTowers;
 	document.getElementById('output').innerHTML += "], \n        \"LockedUpgrades\": [";
 	makearray2();
 	document.getElementById('output').innerHTML += "\n        ], \n        \"BlockedLabUpgrades\": [";
-	document.getElementById('output').innerHTML += BlockedLabUpgrades;
+	document.getElementById('output').innerHTML += challenge.Rules.BlockedLabUpgrades;
 	document.getElementById('output').innerHTML += "], \n        \"MaxNumberOfTotalTowers\": "
-		document.getElementById('output').innerHTML += MaxNumberOfTotalTowers;
+		document.getElementById('output').innerHTML += challenge.Rules.MaxNumberOfTotalTowers;
 	document.getElementById('output').innerHTML += ", \n        \"MaxNumberOfEachTower\": ";
-	document.getElementById('output').innerHTML += MaxNumberOfEachTower;
 	document.getElementById('output').innerHTML += ", \n        \"BloonLevelOffsets\": [";
-	document.getElementById('output').innerHTML += BloonLevelOffsets;
+	document.getElementById('output').innerHTML += challenge.Rules.BloonLevelOffsets;
 	document.getElementById('output').innerHTML += "], \n        \"Reward\": {\n            \"XPMultiplier\": 1,\n             \"MonkeyMoney\": 50,\n             \"XP\": 0,\n             \"MonkeyMoneyMultiplier\": 1\n        }\n    },  ";
 	document.getElementById('output').innerHTML += "\n    \"Setup\": {\n        \"Money\": ";
 	document.getElementById('output').innerHTML += challenge.Setup.Money;
