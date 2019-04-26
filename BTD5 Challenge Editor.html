@@ -269,13 +269,7 @@
 							<div id ="locks"></div>
 						</div>
 						<p>&nbsp;Disable Lab Upgrades: </p>
-						<img id ="AbilityCooldown" src="./Images/Lab/AbilityCooldown.png" class="towerIcon" onclick="lablock(0)"></img>
-						<img id ="AttackSpeed" src="./Images/Lab/AttackSpeed.png" class="towerIcon" onclick="lablock(1)"></img>
-						<img id ="BigBloonSabotage" src="./Images/Lab/BigBloonSabotage.png" class="towerIcon" onclick="lablock(2)"></img>
-						<img id ="DoublePierce" src="./Images/Lab/DoublePierce.png" class="towerIcon" onclick="lablock(3)"></img>
-						<img id ="SellAmount" src="./Images/Lab/SellAmount.png" class="towerIcon" onclick="lablock(4)"></img>
-						<img id ="StartingCash" src="./Images/Lab/StartingCash.png" class="towerIcon" onclick="lablock(5)"></img>
-						<img id ="StartingLives" src="./Images/Lab/StartingLives.png" class="towerIcon" onclick="lablock(6)"></img>
+						<div id = "labUpgrades"></div>
 						<p>&nbsp;Disable Speciality Buildings: </p>
 						<img id ="AcePrivateHangar" src="./Images/Buildings/AcePrivateHangar.png" class="specialtyIcon" onclick="buildingblock(0)"></img>
 						<img id ="AlsCustomChippers" src="./Images/Buildings/AlsCustomChippers.png" class="specialtyIcon" onclick="buildingblock(1)"></img>
@@ -435,6 +429,7 @@ window.addEventListener('load',()=>{
 	makeMaps();
 	makeTowers();
 	makeUpgrades();
+	makeLabUpgrades();
 });
 
 let makeMaps = ()=>{
@@ -450,7 +445,7 @@ let makeMaps = ()=>{
 	});	
 }
 let makeTowers = ()=>{
-	let output = document.getElementById('towers');;
+	let output = document.getElementById('towers');
 	towernames.forEach(t=>{
 		let newTower = document.createElement('img');
 		newTower.className = 'towerIcon';
@@ -462,11 +457,11 @@ let makeTowers = ()=>{
 	});	
 }
 let makeUpgrades = ()=>{
-	let output = document.getElementById('locks');;
+	let output = document.getElementById('locks');
 	towernames.forEach((u,i)=>{
 		if(i > 20) return;
 		let newContainer = document.createElement('div');
-		div.className = 'container';
+		newContainer.className = 'container';
 		let newTower = document.createElement('img');
 		newTower.className = 'towerIcon';
 		newTower.src = `./Images/Towers/${u}.png`
@@ -482,6 +477,19 @@ let makeUpgrades = ()=>{
 		newContainer.addEventListener('click',function(){
 			upgradelock(this);
 		});
+		output.appendChild(newContainer);
+	});	
+}
+let makeLabUpgrades = ()=>{
+	let output = document.getElementById('labUpgrades');
+	labnames.forEach(l=>{
+		let newLab = document.createElement('img');
+		newLab.className = 'towerIcon';
+		newLab.src = `./Images/Lab/${l}.png`
+			newLab.addEventListener('click',function(){
+				lablock(this);
+			});
+		output.appendChild(newLab);
 	});	
 }
 function selectmap() {
@@ -539,13 +547,14 @@ function makearray(){
 	}
 }
 
-function lablock(labid){
+function lablock(selected){
+	let labid = [...selected.parentNode.children].indexOf(selected);
 	if(LabNums[labid] == 0){
 		LabNums[labid] = 1;
-		document.getElementById(labnames[labid]).style.filter = "grayscale(100%)";
+		selected.style.filter = "grayscale(100%)";
 	} else if(LabNums[labid] == 1){
 		LabNums[labid] = 0;
-		document.getElementById(labnames[labid]).style.filter = "grayscale(0%)";
+		selected.style.filter = "grayscale(0%)";
 	}
 	makelabarray();
 }
@@ -594,7 +603,7 @@ function upgradelock(selected){
 	if(!right){
 		right = "4";
 	}
-	towerid.childNode[1].innerText = left + "/" + right;
+	selected.children[1].innerText = left + "/" + right;
 	LockedUpgradeIds[towerid] = left + "/" + right;
 
 }
