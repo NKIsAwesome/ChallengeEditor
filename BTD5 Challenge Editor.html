@@ -271,25 +271,7 @@
 						<p>&nbsp;Disable Lab Upgrades: </p>
 						<div id = "labUpgrades"></div>
 						<p>&nbsp;Disable Speciality Buildings: </p>
-						<img id ="AcePrivateHangar" src="./Images/Buildings/AcePrivateHangar.png" class="specialtyIcon" onclick="buildingblock(0)"></img>
-						<img id ="AlsCustomChippers" src="./Images/Buildings/AlsCustomChippers.png" class="specialtyIcon" onclick="buildingblock(1)"></img>
-						<img id ="BombingRange" src="./Images/Buildings/BombingRange.png" class="specialtyIcon" onclick="buildingblock(2)"></img>
-						<img id ="BoomerangDojo" src="./Images/Buildings/BoomerangDojo.png" class="specialtyIcon" onclick="buildingblock(3)"></img>
-						<img id ="DartlingAmmoDump" src="./Images/Buildings/DartlingAmmoDump.png" class="specialtyIcon" onclick="buildingblock(4)"></img>
-						<img id ="DartTrainingFacility" src="./Images/Buildings/DartTrainingFacility.png" class="specialtyIcon" onclick="buildingblock(5)"></img>
-						<img id ="EngineersWorkshop" src="./Images/Buildings/EngineersWorkshop.png" class="specialtyIcon" onclick="buildingblock(6)"></img>
-						<img id ="GlueSupplyDepot" src="./Images/Buildings/GlueSupplyDepot.png" class="specialtyIcon" onclick="buildingblock(7)"></img>
-						<img id ="HeloHangar" src="./Images/Buildings/HeloHangar.png" class="specialtyIcon" onclick="buildingblock(8)"></img>
-						<img id ="IceFortress" src="./Images/Buildings/IceFortress.png" class="specialtyIcon" onclick="buildingblock(9)"></img>
-						<img id ="MageSpire" src="./Images/Buildings/MageSpire.png" class="specialtyIcon" onclick="buildingblock(10)"></img>
-						<img id ="MortarEmplacement" src="./Images/Buildings/MortarEmplacement.png" class="specialtyIcon" onclick="buildingblock(11)"></img>
-						<img id ="NinjaAcademy" src="./Images/Buildings/NinjaAcademy.png" class="specialtyIcon" onclick="buildingblock(12)"></img>
-						<img id ="PirateCove" src="./Images/Buildings/PirateCove.png" class="specialtyIcon" onclick="buildingblock(13)"></img>
-						<img id ="RifleRange" src="./Images/Buildings/RifleRange.png" class="specialtyIcon" onclick="buildingblock(14)"></img>
-						<img id ="SpikesRUs" src="./Images/Buildings/SpikesRUs.png" class="specialtyIcon" onclick="buildingblock(15)"></img>
-						<img id ="SubConstructionYard" src="./Images/Buildings/SubConstructionYard.png" class="specialtyIcon" onclick="buildingblock(16)"></img>
-						<img id ="SuperMonkeyLair" src="./Images/Buildings/SuperMonkeyLair.png" class="specialtyIcon" onclick="buildingblock(17)"></img>
-						<img id ="TackResearchCenter" src="./Images/Buildings/TackResearchCenter.png" class="specialtyIcon" onclick="buildingblock(18)"></img>
+						<div id = "specialties"></div>
 						<p> </p>
 						<button onclick="bloonranks()">Change Bloon Ranks</button>
 						<p> </p>
@@ -430,6 +412,7 @@ window.addEventListener('load',()=>{
 	makeTowers();
 	makeUpgrades();
 	makeLabUpgrades();
+	makeBuildings();
 });
 
 let makeMaps = ()=>{
@@ -485,11 +468,23 @@ let makeLabUpgrades = ()=>{
 	labnames.forEach(l=>{
 		let newLab = document.createElement('img');
 		newLab.className = 'towerIcon';
-		newLab.src = `./Images/Lab/${l}.png`
+		newLab.src = `./Images/Lab/${l}.png`;
 			newLab.addEventListener('click',function(){
 				lablock(this);
 			});
 		output.appendChild(newLab);
+	});	
+}
+let makeBuildings = ()=>{
+	let output = document.getElementById('specialties');
+	buildingnames.forEach(t=>{
+		let newBuilding = document.createElement('img');
+		newBuilding.className = 'specialtyIcon';
+		newBuilding.src = `./Images/Buildings/${t}.png`;
+			newBuilding.addEventListener('click',function(){
+				buildingblock(this);
+			});
+		output.appendChild(newBuilding);
 	});	
 }
 function selectmap() {
@@ -558,13 +553,14 @@ function lablock(selected){
 	}
 	makelabarray();
 }
-function buildingblock(labid){
+function buildingblock(selected){
+	let labid = [...selected.parentNode.children].indexOf(selected);
 	if(BuildNums[labid] == 0){
 		BuildNums[labid] = 1;
-		document.getElementById(buildingnames[labid]).style.filter = "grayscale(100%)";
+		selected.style.filter = "grayscale(100%)";
 	} else if(BuildNums[labid] == 1){
 		BuildNums[labid] = 0;
-		document.getElementById(buildingnames[labid]).style.filter = "grayscale(0%)";
+		selected.style.filter = "grayscale(0%)";
 	}
 	makebuildingarray();
 }
