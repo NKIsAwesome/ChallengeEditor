@@ -508,7 +508,7 @@ function changebloon(newvalue, type){
 	var test = bloonsname[type] + "2";
 	var min = document.getElementById(bloonsname[type] + "Slider").min;
 	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue - min] + ".png";
-	challenge.Rules.BloonLevelOffsets[type] = newvalue; 
+	challenge.Rules.BloonLevelOffsets[type] = Number(newvalue); 
 }
 
 function makearray(){
@@ -516,7 +516,7 @@ function makearray(){
 	NumLockedTowers = 0;
 	for(var i=0; i<towernames.length;i++){
 		if(LockedTowerNums[i] == 1){
-			challenge.Rules.LockedTowers[NumLockedTowers] = `"${towernames[i]}"`;
+			challenge.Rules.LockedTowers[NumLockedTowers] = towernames[i];
 			NumLockedTowers++;
 		}
 	}
@@ -550,7 +550,7 @@ function makebuildingarray(){
 	challenge.Rules.BlockedSpecialties = [];
 	for(var i = 0; i<buildingnames.length; i++){
 		if(BuildNums[i] == 1){
-			challenge.Rules.BlockedSpecialties[NumBuildBlocks] = "\"" + buildingnames[i] + "\"";
+			challenge.Rules.BlockedSpecialties[NumBuildBlocks] = buildingnames[i];
 			NumBuildBlocks++;
 		}
 	}
@@ -561,7 +561,7 @@ function makelabarray(){
 	challenge.Rules.BlockedLabUpgrades = [];
 	for(var i = 0; i<labnames.length; i++){
 		if(LabNums[i] == 1){
-			challenge.Rules.BlockedLabUpgrades[NumLabBlocks] = "\"" + labnames[i] + "\"";
+			challenge.Rules.BlockedLabUpgrades[NumLabBlocks] = labnames[i];
 			NumLabBlocks++;
 		}
 	}
@@ -577,23 +577,19 @@ function upgradelock(selected){
 	if(!right){
 		right = "4";
 	}
-	selected.children[1].innerText = left + "/" + right;
-	LockedUpgradeIds[towerid] = left + "/" + right;
+	let type = towernames[towerid];
+	let found = challenge.Rules.LockedUpgrades.find(u=>u.Type === type);
+       	if(found) found.Upgrades = [left,right];
+	else challenge.Rules.LockedUpgrades.push({
+		Type:type,
+		Upgrades:[
+			left,
+			right
+		]
+	});
 
 }
 
-function makearray2() {
-	var numoflocks = 0;
-	for(var i = 0; i<20; i++){
-		if(LockedUpgradeIds[i] != 0){
-			document.getElementById('output').innerHTML += "\n            {\n                \"Type\": \"" + towernames[i] + "\", \n                \"Upgrades\": [\n                    " + LockedUpgradeIds[i].substring(0,1) + ",\n                    " + LockedUpgradeIds[i].substring(2) + "\n                ]\n            },";
-			numoflocks++;
-		}
-		if(i == 19 && numoflocks != 0){
-			document.getElementById('output').innerHTML = document.getElementById('output').innerHTML.substring(0, document.getElementById('output').innerHTML.length - 1)
-		}
-	}
-}
 
 function updatedata(){
 	challenge.nk_title = document.getElementById('name').value;
@@ -675,51 +671,9 @@ function updatedata(){
 function finished(){
 	document.getElementById('output').style.display = "block";
 	updatedata();
-	var a = "";
-	//print
-	document.getElementById('output').innerHTML += "{\n    \"nk_description\": \"";
-	document.getElementById('output').innerHTML += challenge.nk_description;
-	document.getElementById('output').innerHTML += "\", \n    \"Rules\": {\n        \"BlockedSpecialties\": ["
-		document.getElementById('output').innerHTML += challenge.Rules.BlockedSpecialties;
-	document.getElementById('output').innerHTML += "], \n        \"TargetRound\": ";
-	document.getElementById('output').innerHTML += challenge.Rules.TargetRound;
-	document.getElementById('output').innerHTML += ", \n        \"CanSave\": ";
-	document.getElementById('output').innerHTML += challenge.Rules.CanSave;
-	document.getElementById('output').innerHTML += ", \n        \"LockedTowers\": [";
-	document.getElementById('output').innerHTML += challenge.Rules.LockedTowers;
-	document.getElementById('output').innerHTML += "], \n        \"LockedUpgrades\": [";
-	makearray2();
-	document.getElementById('output').innerHTML += "\n        ], \n        \"BlockedLabUpgrades\": [";
-	document.getElementById('output').innerHTML += challenge.Rules.BlockedLabUpgrades;
-	document.getElementById('output').innerHTML += "], \n        \"MaxNumberOfTotalTowers\": "
-		document.getElementById('output').innerHTML += challenge.Rules.MaxNumberOfTotalTowers;
-	document.getElementById('output').innerHTML += ", \n        \"MaxNumberOfEachTower\": ";
-	document.getElementById('output').innerHTML += ", \n        \"BloonLevelOffsets\": [";
-	document.getElementById('output').innerHTML += challenge.Rules.BloonLevelOffsets;
-	document.getElementById('output').innerHTML += "], \n        \"Reward\": {\n            \"XPMultiplier\": 1,\n             \"MonkeyMoney\": 50,\n             \"XP\": 0,\n             \"MonkeyMoneyMultiplier\": 1\n        }\n    },  ";
-	document.getElementById('output').innerHTML += "\n    \"Setup\": {\n        \"Money\": ";
-	document.getElementById('output').innerHTML += challenge.Setup.Money;
-	document.getElementById('output').innerHTML += ", \n        \"Health\": ";
-	document.getElementById('output').innerHTML += challenge.Setup.Health;
-	document.getElementById('output').innerHTML += ", \n        \"StartRound\": ";
-	document.getElementById('output').innerHTML += challenge.Setup.StartRound;;
-	document.getElementById('output').innerHTML += "\n    }, \n";
-	document.getElementById('output').innerHTML += "    \"nk_title\": \"";
-	document.getElementById('output').innerHTML += challenge.nk_title;
-	document.getElementById('output').innerHTML += "\", \n    \"nk_track\": \"";
-	document.getElementById('output').innerHTML += challenge.nk_track;
-	document.getElementById('output').innerHTML += "\", \n    \"nk_rank_required\": ";
-	document.getElementById('output').innerHTML += challenge.nk_rank_required;
-	document.getElementById('output').innerHTML += ", \n    \"nk_mode\": ";
-	document.getElementById('output').innerHTML += challenge.nk_mode;
-	document.getElementById('output').innerHTML += "\n}";
-
-
+	document.getElementById('output').innerHTML = JSON.stringify(challenge,null,2);
 }
 
-for(var i=0; i<towernames.length;i++){
-	console.log("\<img id \=\"" + towernames[i] + "\" src=\"\.\/Images\/Towers\/" + towernames[i] + ".png\" style\=\"width\:62px\;height\:71px;\" onclick\=\"locktower\(" + i + "\)\"\>\<\/img\>");
-}
 						</script>
 	</body>
 	</head>
