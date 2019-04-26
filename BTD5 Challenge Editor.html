@@ -285,15 +285,12 @@ var LockedTowers = [];
 var LockedUpgrades = [];
 
 //Game Properties
-var TargetRound = 0;
-var CanSave = false;
 var CanEarnMoney = true;
 var MoneyPerRound = 100;
 var CashPerPopModifier = 1.0;
 var MaxNumberOfEachTower = -1;
 var MaxNumberOfTotalTowers = -1;
 var BlockedLabUpgrades = [];
-var BlockedSpecialties = [];
 var BloonLevelOffsets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 
 //Setup
@@ -560,14 +557,13 @@ function buildingblock(selected){
 
 function makebuildingarray(){
 	NumBuildBlocks = 0;
-	BlockedSpecialties = [];
+	challenge.Rules.BlockedSpecialties = [];
 	for(var i = 0; i<buildingnames.length; i++){
 		if(BuildNums[i] == 1){
-			BlockedSpecialties[NumBuildBlocks] = "\"" + buildingnames[i] + "\"";
+			challenge.Rules.BlockedSpecialties[NumBuildBlocks] = "\"" + buildingnames[i] + "\"";
 			NumBuildBlocks++;
 		}
 	}
-	console.log(BlockedSpecialties);
 }
 
 function makelabarray(){
@@ -646,15 +642,11 @@ function updatedata(){
 	}
 	challenge.Setup.StartRound = document.getElementById('startround').value;
 	var cb = document.getElementById('CanSave');
-	if(cb.checked == true){
-		CanSave = true;
-	} else {
-		CanSave = false;
-	}
+	challenge.Rules.CanSave = cb.checked;
 	console.log(document.getElementById("endround").value);
-	console.log("hi");
 	if(document.getElementById("endround").value == "DEFAULT"){
 		challenge.nk_mode = Number(challenge.nk_mode);
+		let TargetRound;
 		switch(challenge.nk_mode){
 			case 0:
 				TargetRound = 50;
@@ -676,8 +668,9 @@ function updatedata(){
 				TargetRound = -1;
 				break;
 		}
+		challenge.Rules.TargetRound = TargetRound;
 	} else {
-		TargetRound = document.getElementById("endround").value;
+		challenge.Rules.TargetRound = document.getElementById("endround").value;
 	}
 
 
@@ -699,11 +692,11 @@ function finished(){
 	document.getElementById('output').innerHTML += "{\n    \"nk_description\": \"";
 	document.getElementById('output').innerHTML += challenge.nk_description;
 	document.getElementById('output').innerHTML += "\", \n    \"Rules\": {\n        \"BlockedSpecialties\": ["
-		document.getElementById('output').innerHTML += BlockedSpecialties;
+		document.getElementById('output').innerHTML += challenge.Rules.BlockedSpecialties;
 	document.getElementById('output').innerHTML += "], \n        \"TargetRound\": ";
-	document.getElementById('output').innerHTML += TargetRound;
+	document.getElementById('output').innerHTML += challenge.Rules.TargetRound;
 	document.getElementById('output').innerHTML += ", \n        \"CanSave\": ";
-	document.getElementById('output').innerHTML += CanSave;
+	document.getElementById('output').innerHTML += challenge.Rules.CanSave;
 	document.getElementById('output').innerHTML += ", \n        \"LockedTowers\": [";
 	document.getElementById('output').innerHTML += LockedTowers;
 	document.getElementById('output').innerHTML += "], \n        \"LockedUpgrades\": [";
