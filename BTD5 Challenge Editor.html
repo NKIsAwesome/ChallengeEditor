@@ -199,21 +199,7 @@
 				</div></div>
 				<div id="modal2" class="modal2">	<div style="max-width: 500px;top: -1000px;display: block;margin-left: auto;margin-right: auto;" id="class">	<div style="max-width: 500px; overflow:scroll;background-color: #436FA8;" id="bg" class="modal-content2">  
 							<span class="close2" style="width: 25px; height: 25px;"><img src="./Images/UI/exitbtn.png" style="width: 25px; height: 25px;"></img></span>
-							<div><img id ="red" src="./Images/Bloon/Red.png" class="bloonIcon"></img><input type="range" min="0" max="14" value="0" class="slider" id="RedSlider" oninput="changebloon(this.value,0)"><img id ="Red2" src="./Images/Bloon/Red.png" class="bloonIcon"></div>
-							<div><img id ="blue" src="./Images/Bloon/Blue.png" class="bloonIcon"></img><input type="range" min="-1" max="13" value="0" class="slider" id="BlueSlider" oninput="changebloon(this.value,1)"><img id ="Blue2" src="./Images/Bloon/Blue.png" class="bloonIcon"></div>
-							<div><img id ="green" src="./Images/Bloon/Green.png" class="bloonIcon"></img><input type="range" min="-2" max="12" value="0" class="slider" id="GreenSlider" oninput="changebloon(this.value,2)"><img id ="Green2" src="./Images/Bloon/Green.png" class="bloonIcon"></div>
-							<div><img id ="yellow" src="./Images/Bloon/Yellow.png" class="bloonIcon"></img><input type="range" min="-3" max="11" value="0" class="slider" id="YellowSlider" oninput="changebloon(this.value,3)"><img id ="Yellow2" src="./Images/Bloon/Yellow.png" class="bloonIcon"></div>
-							<div><img id ="pink" src="./Images/Bloon/Pink.png" class="bloonIcon"></img><input type="range" min="-4" max="10" value="0" class="slider" id="PinkSlider" oninput="changebloon(this.value,4)"><img id ="Pink2" src="./Images/Bloon/Pink.png" class="bloonIcon"></div>
-							<div><img id ="black" src="./Images/Bloon/Black.png" class="bloonIcon"></img><input type="range" min="-5" max="9" value="0" class="slider" id="BlackSlider" oninput="changebloon(this.value,5)"><img id ="Black2" src="./Images/Bloon/Black.png" class="bloonIcon"></div>
-							<div><img id ="white" src="./Images/Bloon/White.png" class="bloonIcon"></img><input type="range" min="-6" max="8" value="0" class="slider" id="WhiteSlider" oninput="changebloon(this.value,6)"><img id ="White2" src="./Images/Bloon/White.png" class="bloonIcon"></div>
-							<div><img id ="lead" src="./Images/Bloon/Lead.png" class="bloonIcon"></img><input type="range" min="-7" max="7" value="0" class="slider" id="LeadSlider" oninput="changebloon(this.value,7)"><img id ="Lead2" src="./Images/Bloon/Lead.png" class="bloonIcon"></div>
-							<div><img id ="zebra" src="./Images/Bloon/Zebra.png" class="bloonIcon"></img><input type="range" min="-8" max="6" value="0" class="slider" id="ZebraSlider" oninput="changebloon(this.value,8)"><img id ="Zebra2" src="./Images/Bloon/Zebra.png" class="bloonIcon"></div>;
-							<div><img id ="rainbow" src="./Images/Bloon/Rainbow.png" class="bloonIcon"></img><input type="range" min="-9" max="5" value="0" class="slider" id="RainbowSlider" oninput="changebloon(this.value,9)"><img id ="Rainbow2" src="./Images/Bloon/Rainbow.png" class="bloonIcon"></div>
-							<div><img id ="ceramic" src="./Images/Bloon/Ceramic.png" class="bloonIcon"></img><input type="range" min="-10" max="4" value="0" class="slider" id="CeramicSlider" oninput="changebloon(this.value,10)"><img id ="Ceramic2" src="./Images/Bloon/Ceramic.png" class="bloonIcon"></div>
-							<div><img id ="moab" src="./Images/Bloon/MOAB.png" class="bloonIcon"></img><input type="range" min="-12" max="2" value="0" class="slider" id="MOABSlider" oninput="changebloon(this.value,12)"><img id ="MOAB2" src="./Images/Bloon/MOAB.png" class="bloonIcon"></div>
-							<div><img id ="bfb" src="./Images/Bloon/BFB.png" class="bloonIcon"></img><input type="range" min="-13" max="1" value="0" class="slider" id="BFBSlider" oninput="changebloon(this.value,13)"><img id ="BFB2" src="./Images/Bloon/BFB.png" class="bloonIcon"></div>
-							<div><img id ="zomg" src="./Images/Bloon/ZOMG.png" class="bloonIcon"></img><input type="range" min="-14" max="0" value="0" class="slider" id="ZOMGSlider" oninput="changebloon(this.value,14)"><img id ="ZOMG2" src="./Images/Bloon/ZOMG.png" class="bloonIcon"></div>
-
+							<div id ='sliders'></div>
 						</div> </div> </div>
 						<div>
 							<p>&nbsp;Challenge Name:
@@ -393,8 +379,33 @@ window.addEventListener('load',()=>{
 	makeUpgrades();
 	makeLabUpgrades();
 	makeBuildings();
+	makeSliders();
 });
 
+let makeSliders = ()=>{
+	let output = document.getElementById('sliders');
+	bloonsname.forEach((s,i)=>{
+		let newBloon = document.createElement('img');
+		newBloon.className = 'bloonIcon';
+		newBloon.src = `./Images/Bloon/${s}.png`
+		output.appendChild(newBloon);
+		let newSlider = document.createElement('input');
+		newSlider.className='slider';
+		newSlider.value = 0;
+		newSlider.type = 'range';
+		newSlider.min = 0-i;
+		newSlider.max = 14-i;
+		newSlider.addEventListener('input',function(){
+			changebloon(this.value,this);
+		});
+		output.appendChild(newSlider);
+		newBloon = document.createElement('img');
+		newBloon.className = 'bloonIcon';
+		newBloon.src = `./Images/Bloon/${s}.png`
+		output.appendChild(newBloon);
+
+	});	
+}
 let makeMaps = ()=>{
 	let output = document.querySelector('.maps');
 	mapnames.forEach(m=>{
@@ -504,10 +515,11 @@ function locktower(selected){
 	makearray();
 }
 
-function changebloon(newvalue, type){
-	var test = bloonsname[type] + "2";
-	var min = document.getElementById(bloonsname[type] + "Slider").min;
-	document.getElementById(test).src = "./Images/Bloon/" + bloonsname[newvalue - min] + ".png";
+function changebloon(newvalue, selected){
+	let type = Math.floor([...selected.parentNode.children].indexOf(selected)/2);
+	let pos = [...selected.parentNode.children].indexOf(selected);
+	var min = selected.min;
+	selected.parentNode.children[pos+1].src = "./Images/Bloon/" + bloonsname[newvalue - min] + ".png";
 	challenge.Rules.BloonLevelOffsets[type] = Number(newvalue); 
 }
 
@@ -587,6 +599,7 @@ function upgradelock(selected){
 			right
 		]
 	});
+	selected.children[1].innerText = left + "/" + right;
 
 }
 
