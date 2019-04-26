@@ -305,7 +305,6 @@ var BloonLevelOffsets = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
 var Setup = [];
 var Towers = [];
 var StartingCash = 650;
-var StartingLives = 100;
 var StartRound = 1;
 var Inventory = [];
 
@@ -630,26 +629,26 @@ function updatedata(){
 	if(document.getElementById("startlives").value == "DEFAULT") {
 		switch(nk_mode){
 			case 0:
-				StartingLives = 200;
+				challenge.Setup.Health = 200;
 				break;
 			case 1:
-				StartingLives = 150;
+				challenge.Setup.Health = 150;
 				break;
 			case 2:
-				StartingLives = 100;
+				challenge.Setup.Health = 100;
 				break;
 			case 3: 
-				StartingLives = 1;
+				challenge.Setup.Health = 1;
 				break;
 			case 4:
-				StartingLives = 100;
+				challenge.Setup.Health = 100;
 				break;
 			case 5:
-				StartingLives = 100;
+				challenge.Setup.Health = 100;
 				break;
 		}
 	} else {
-		StartingLives = document.getElementById("startlives").value;
+		challenge.Setup.Health = document.getElementById("startlives").value;
 	}
 	StartRound = document.getElementById('startround').value;
 	var cb = document.getElementById('CanSave');
@@ -727,7 +726,7 @@ function finished(){
 	document.getElementById('output').innerHTML += "\n    \"Setup\": {\n        \"Money\": ";
 	document.getElementById('output').innerHTML += StartingCash;
 	document.getElementById('output').innerHTML += ", \n        \"Health\": ";
-	document.getElementById('output').innerHTML += StartingLives;
+	document.getElementById('output').innerHTML += challenge.Setup.Health;
 	document.getElementById('output').innerHTML += ", \n        \"StartRound\": ";
 	document.getElementById('output').innerHTML += StartRound;
 	document.getElementById('output').innerHTML += "\n    }, \n";
